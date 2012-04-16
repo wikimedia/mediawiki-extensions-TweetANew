@@ -191,6 +191,16 @@ $messages['gl'] = array(
 	'tweetanew-edit3' => 'Bótalle unha ollada a "$2", con novos contidos no enderezo $1',
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'tweetanew-minoredit' => 'S',
+	'tweetanew-authorcredit' => 'wot',
+	'tweetanew-newdefault' => 'NOWA STRONA: $1 - $2',
+	'tweetanew-editdefault' => 'ZAKTUALIZOWANA STRONA: $1 - $2',
+);
+
 /** Interlingua (Interlingua)
  * @author McDutchie
  */
@@ -282,6 +292,18 @@ $messages['nl'] = array(
 $messages['sr-ec'] = array(
 	'tweetanew-minoredit' => 'м',
 	'tweetanew-authorcredit' => 'од',
+);
+
+/** Turkish (Türkçe)
+ * @author Bilalokms
+ * @author Emperyan
+ */
+$messages['tr'] = array(
+	'tweetanew-newaction' => 'Bu sayfa hakkında tweet atın',
+	'tweetanew-editaction' => 'Bu değişiklik hakkında tweetleyin',
+	'tweetanew-minoredit' => 'k',
+	'tweetanew-newdefault' => 'YENİ SAYFA: $1 - $2',
+	'tweetanew-editdefault' => 'SAYFA GÜNCELLENDİ: $1 - $2',
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
