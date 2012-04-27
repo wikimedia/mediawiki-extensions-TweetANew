@@ -222,6 +222,19 @@ $messages['ia'] = array(
 	'tweetanew-edit3' => 'Reguarda $2 - il ha nove contento in $1',
 );
 
+/** Japanese (日本語)
+ * @author Shirayuki
+ */
+$messages['ja'] = array(
+	'tweetanew-desc' => 'ページの作成/編集時にツイートする。自動的か編集ページからかは、ウィキ全体の設定に依存する。',
+	'tweetanew-newaction' => 'この新しいページについてツイート',
+	'tweetanew-newtooltip' => 'この新しいページについて Twitter に情報を送信',
+	'tweetanew-editaction' => 'この編集についてツイート',
+	'tweetanew-edittooltip' => 'この編集について Twitter に情報を送信',
+	'tweetanew-minoredit' => '細',
+	'tweetanew-newdefault' => '新しいページ：$1 - $2',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
