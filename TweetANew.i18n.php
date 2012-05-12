@@ -299,6 +299,13 @@ $messages['nl'] = array(
 	'tweetanew-edit3' => 'Kijk eens op de aangepaste pagina $1 ($2)',
 );
 
+/** Pälzisch (Pälzisch)
+ * @author Manuae
+ */
+$messages['pfl'] = array(
+	'tweetanew-authorcredit' => 'vun',
+);
+
 /** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Rancher
  */
