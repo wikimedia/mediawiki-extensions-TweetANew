@@ -126,6 +126,13 @@ $messages['de'] = array(
 	'tweetanew-edit3' => 'Schaut Euch den Link $2 an - die Seite $1 wurde geändert',
 );
 
+/** Zazaki (Zazaki)
+ * @author Erdemaslancan
+ */
+$messages['diq'] = array(
+	'tweetanew-editdefault' => 'PELA NEWENYÊ: $1 - $2',
+);
+
 /** Spanish (Español)
  * @author Armando-Martin
  */
