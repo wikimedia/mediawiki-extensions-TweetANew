@@ -310,7 +310,21 @@ $messages['nl'] = array(
  * @author Manuae
  */
 $messages['pfl'] = array(
+	'tweetanew-desc' => "Tswidscha wonä Said vaänad worre isch. Abhängisch vunde Oischdellunge fas gsomde Wiki, endweda autdomadisch oda vunde b'awaided Saide.",
+	'tweetanew-newaction' => 'Tswidscha iwa die naij Said',
+	'tweetanew-newtooltip' => 'Schigg Auskinfd iwa die naij Said zu Twitter',
+	'tweetanew-editaction' => "Tswidscha iwa die B'awaidung",
+	'tweetanew-edittooltip' => "Schigg Auskinfd iwa die B'awaidung zu Twitter",
+	'tweetanew-minoredit' => 'K',
 	'tweetanew-authorcredit' => 'vun',
+	'tweetanew-newdefault' => 'NAIJI SAID: $1 - $2',
+	'tweetanew-new1' => '$1 isch grad oagleschd worre: $2',
+	'tweetanew-new2' => '$1 isch keazlisch oagleschd worre: $2',
+	'tweetanew-new3' => "Guggd mol $2 oa - s'hodä naiji Said uff $1",
+	'tweetanew-editdefault' => 'AGDUALISIAD SAID: $1 - $2',
+	'tweetanew-edit1' => '$1 isch grad agdualisiad worre: $2',
+	'tweetanew-edit2' => '$1 isch keazlisch vaänad worre: $2',
+	'tweetanew-edit3' => "Guggd mol $2 oa - s'hod oinische naije Inhald uff $1",
 );
 
 /** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
