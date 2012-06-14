@@ -85,7 +85,7 @@ $messages['be-tarask'] = array(
 	'tweetanew-new3' => 'Наведайце новую старонку «$1» — $2',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  */
 $messages['br'] = array(
@@ -133,7 +133,7 @@ $messages['diq'] = array(
 	'tweetanew-editdefault' => 'PELA NEWENYÊ: $1 - $2',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  */
 $messages['es'] = array(
@@ -154,7 +154,7 @@ $messages['es'] = array(
 	'tweetanew-edit3' => 'Revise $2  -hay algunos contenidos nuevos en la dirección $1',
 );
 
-/** French (Français)
+/** French (français)
  * @author Crochet.david
  * @author Gomoko
  * @author McDutchie
@@ -208,7 +208,7 @@ $messages['hsb'] = array(
 	'tweetanew-editdefault' => 'ZAKTUALIZOWANA STRONA: $1 - $2',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -262,7 +262,7 @@ $messages['lb'] = array(
 	'tweetanew-edit3' => 'Kuckt no $2 - et gëtt eng neien Inhalt op $1',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -327,7 +327,7 @@ $messages['pfl'] = array(
 	'tweetanew-edit3' => "Guggd mol $2 oa - s'hod oinische naije Inhald uff $1",
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Rancher
  */
 $messages['sr-ec'] = array(
@@ -347,7 +347,7 @@ $messages['tr'] = array(
 	'tweetanew-editdefault' => 'SAYFA GÜNCELLENDİ: $1 - $2',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Hzy980512
  */
 $messages['zh-hans'] = array(
