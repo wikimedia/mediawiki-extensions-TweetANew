@@ -229,6 +229,21 @@ $messages['ia'] = array(
 	'tweetanew-edit3' => 'Reguarda $2 - il ha nove contento in $1',
 );
 
+/** Italian (italiano)
+ * @author Beta16
+ */
+$messages['it'] = array(
+	'tweetanew-desc' => "Twitta quando una pagina viene creata o modificata. In base alle preferenze impostate per l'intero wiki, è possibile farlo automaticamente o dal modulo di modifica.",
+	'tweetanew-newaction' => 'Twitta di questa nuova pagina',
+	'tweetanew-newtooltip' => 'Invia informazioni riguardo questa nuova pagina su Twitter',
+	'tweetanew-editaction' => 'Twitta di questa modifica',
+	'tweetanew-edittooltip' => 'Invia informazioni riguardo questa modifica su Twitter',
+	'tweetanew-minoredit' => 'm',
+	'tweetanew-authorcredit' => 'di',
+	'tweetanew-newdefault' => 'NUOVA PAGINA: $1 - $2',
+	'tweetanew-editdefault' => 'PAGINA AGGIORNATA: $1 - $2',
+);
+
 /** Japanese (日本語)
  * @author Shirayuki
  */
