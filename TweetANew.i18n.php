@@ -241,7 +241,13 @@ $messages['it'] = array(
 	'tweetanew-minoredit' => 'm',
 	'tweetanew-authorcredit' => 'di',
 	'tweetanew-newdefault' => 'NUOVA PAGINA: $1 - $2',
+	'tweetanew-new1' => 'Guarda come $1 è stata creata su $2',
+	'tweetanew-new2' => '$1 è stata recentemente creata su $2',
+	'tweetanew-new3' => "Controlla $2 - c'è una nuova pagina riguardo $1",
 	'tweetanew-editdefault' => 'PAGINA AGGIORNATA: $1 - $2',
+	'tweetanew-edit1' => 'Guarda come $1 è stata aggiornata su $2',
+	'tweetanew-edit2' => '$1 è stata recentemente aggiornata su $2',
+	'tweetanew-edit3' => "Controlla $2 - c'è nuovo contenuto riguardo $1",
 );
 
 /** Japanese (日本語)
