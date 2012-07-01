@@ -67,7 +67,7 @@ $messages['qqq'] = array(
 * $2 is the final URL of the new page - shortened if a service is enabled via this extension',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Wizardist
  */
@@ -177,7 +177,7 @@ $messages['fr'] = array(
 	'tweetanew-edit3' => 'Vérifiez $2 - il y a du nouveau contenu sur $1',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -198,7 +198,7 @@ $messages['gl'] = array(
 	'tweetanew-edit3' => 'Bótalle unha ollada a "$2", con novos contidos no enderezo $1',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
