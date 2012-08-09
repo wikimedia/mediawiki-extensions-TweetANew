@@ -348,6 +348,21 @@ $messages['pfl'] = array(
 	'tweetanew-edit3' => "Guggd mol $2 oa - s'hod oinische naije Inhald uff $1",
 );
 
+/** Portuguese (português)
+ * @author SandroHc
+ */
+$messages['pt'] = array(
+	'tweetanew-editaction' => 'Twittar sobre esta edição',
+	'tweetanew-edittooltip' => 'Enviar informação sobre esta edição para o Twitter',
+	'tweetanew-minoredit' => 'm',
+	'tweetanew-authorcredit' => 'por',
+	'tweetanew-newdefault' => 'NOVA PÁGINA: $1 - $2',
+	'tweetanew-new1' => 'Parece que $1 foi criado em $2',
+	'tweetanew-new2' => '$1 foi recentemente criado em $2',
+	'tweetanew-editdefault' => 'PÁGINA ATUALIZADA: $1 - $2',
+	'tweetanew-edit1' => 'Parece que $1 foi atualizado em $2',
+);
+
 /** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Rancher
  */
