@@ -67,6 +67,13 @@ $messages['qqq'] = array(
 * $2 is the final URL of the new page - shortened if a service is enabled via this extension',
 );
 
+/** Arabic (العربية)
+ * @author Meno25
+ */
+$messages['ar'] = array(
+	'tweetanew-minoredit' => 'ط',
+);
+
 /** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Wizardist
@@ -271,6 +278,14 @@ $messages['ja'] = array(
 	'tweetanew-edit3' => 'チェックしてください $2 - 「$1」の内容が更新されました',
 );
 
+/** Georgian (ქართული)
+ * @author David1010
+ */
+$messages['ka'] = array(
+	'tweetanew-newdefault' => 'ახალი გვერდი: $1 - $2',
+	'tweetanew-editdefault' => 'განახლებული გვერდი: $1 - $2',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
@@ -371,12 +386,29 @@ $messages['pt'] = array(
 	'tweetanew-edit1' => 'Parece que $1 foi atualizado em $2',
 );
 
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'tweetanew-minoredit' => 'සු',
+	'tweetanew-authorcredit' => 'විසින්',
+	'tweetanew-newdefault' => 'නව පිටුව: $1 - $2',
+);
+
 /** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Rancher
  */
 $messages['sr-ec'] = array(
 	'tweetanew-minoredit' => 'м',
 	'tweetanew-authorcredit' => 'од',
+);
+
+/** Telugu (తెలుగు)
+ * @author Veeven
+ */
+$messages['te'] = array(
+	'tweetanew-minoredit' => 'చి',
+	'tweetanew-newdefault' => 'కొత్త పేజీ: $1 - $2',
 );
 
 /** Tagalog (Tagalog)
