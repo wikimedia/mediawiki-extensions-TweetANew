@@ -371,6 +371,13 @@ $messages['pfl'] = array(
 	'tweetanew-edit3' => "Guggd mol $2 oa - s'hod oinische naije Inhald uff $1",
 );
 
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'tweetanew-newdefault' => 'نوی مخ: $1 - $2',
+);
+
 /** Portuguese (português)
  * @author SandroHc
  */
@@ -401,6 +408,13 @@ $messages['si'] = array(
 $messages['sr-ec'] = array(
 	'tweetanew-minoredit' => 'м',
 	'tweetanew-authorcredit' => 'од',
+);
+
+/** Tamil (தமிழ்)
+ * @author Karthi.dr
+ */
+$messages['ta'] = array(
+	'tweetanew-minoredit' => 'சி',
 );
 
 /** Telugu (తెలుగు)
