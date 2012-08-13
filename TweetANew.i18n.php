@@ -282,6 +282,8 @@ $messages['ja'] = array(
  * @author David1010
  */
 $messages['ka'] = array(
+	'tweetanew-minoredit' => 'მ',
+	'tweetanew-authorcredit' => 'ავტორი',
 	'tweetanew-newdefault' => 'ახალი გვერდი: $1 - $2',
 	'tweetanew-editdefault' => 'განახლებული გვერდი: $1 - $2',
 );
@@ -412,9 +414,11 @@ $messages['sr-ec'] = array(
 
 /** Tamil (தமிழ்)
  * @author Karthi.dr
+ * @author Shanmugamp7
  */
 $messages['ta'] = array(
 	'tweetanew-minoredit' => 'சி',
+	'tweetanew-newdefault' => 'புதிய பக்கம்: $1 - $2',
 );
 
 /** Telugu (తెలుగు)
