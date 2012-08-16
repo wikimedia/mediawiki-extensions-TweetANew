@@ -184,6 +184,16 @@ $messages['fr'] = array(
 	'tweetanew-edit3' => 'Vérifiez $2 - il y a du nouveau contenu sur $1',
 );
 
+/** Franco-Provençal (arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'tweetanew-minoredit' => 'p',
+	'tweetanew-authorcredit' => 'per',
+	'tweetanew-newdefault' => 'PÂGE NOVÈLA : $1 - $2',
+	'tweetanew-editdefault' => 'PÂGE BETÂYE A JORN : $1 - $2',
+);
+
 /** Galician (galego)
  * @author Toliño
  */
