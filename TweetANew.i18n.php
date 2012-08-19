@@ -405,6 +405,27 @@ $messages['pt'] = array(
 	'tweetanew-edit1' => 'Parece que $1 foi atualizado em $2',
 );
 
+/** Russian (русский)
+ * @author Kalan
+ */
+$messages['ru'] = array(
+	'tweetanew-desc' => 'Твитит, когда создаются или редактируются страницы. Это происходит автоматически либо со страницы редактирования, в зависимости от настроек всей вики.',
+	'tweetanew-newaction' => 'Твитнуть об этой новой странице',
+	'tweetanew-newtooltip' => 'Отправить информацию о создании этой страницы в Twitter',
+	'tweetanew-editaction' => 'Твитнуть об этой правке',
+	'tweetanew-edittooltip' => 'Отправить информацию об этой правке в Twitter',
+	'tweetanew-minoredit' => 'м',
+	'tweetanew-authorcredit' => 'автор —',
+	'tweetanew-newdefault' => 'Новая страница: $1 – $2',
+	'tweetanew-new1' => 'Похоже, создали страницу $1 – $2',
+	'tweetanew-new2' => 'Недавно создали страницу $1 – $2',
+	'tweetanew-new3' => 'Посмотрите на $2 — там новая страница, $1',
+	'tweetanew-editdefault' => 'Обновилась страница $1 – $2',
+	'tweetanew-edit1' => 'Кажется, страницу $1 обновили: $2',
+	'tweetanew-edit2' => 'Недавно обновилась страница $1 – $2',
+	'tweetanew-edit3' => 'Посмотрите на $2 — там обновилась страница $1',
+);
+
 /** Sinhala (සිංහල)
  * @author පසිඳු කාවින්ද
  */
