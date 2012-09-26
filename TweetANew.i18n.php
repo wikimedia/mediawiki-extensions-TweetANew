@@ -443,6 +443,12 @@ $messages['sr-ec'] = array(
 	'tweetanew-authorcredit' => 'од',
 );
 
+/** Serbian (Latin script) (srpski (latinica)‎) */
+$messages['sr-el'] = array(
+	'tweetanew-minoredit' => 'm',
+	'tweetanew-authorcredit' => 'od',
+);
+
 /** Tamil (தமிழ்)
  * @author Karthi.dr
  * @author Shanmugamp7
@@ -500,5 +506,12 @@ $messages['zh-hans'] = array(
 	'tweetanew-desc' => '创建或编辑页面时会发出广播。主要取决于整个维基的设置。',
 	'tweetanew-newaction' => '该新页面的广播',
 	'tweetanew-newtooltip' => '发送该新页面的信息至Twitter',
+);
+
+/** Traditional Chinese (中文（繁體）‎) */
+$messages['zh-hant'] = array(
+	'tweetanew-desc' => '創建或編輯頁面時會發出廣播。主要取決於整個維基的設置。',
+	'tweetanew-newaction' => '該新頁面的廣播',
+	'tweetanew-newtooltip' => '發送該新頁面的信息至Twitter',
 );
 
