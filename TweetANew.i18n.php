@@ -74,7 +74,7 @@ $messages['ar'] = array(
 	'tweetanew-minoredit' => 'ط',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Wizardist
  */
@@ -435,7 +435,7 @@ $messages['si'] = array(
 	'tweetanew-newdefault' => 'නව පිටුව: $1 - $2',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Rancher
  */
 $messages['sr-ec'] = array(
@@ -499,7 +499,7 @@ $messages['tr'] = array(
 	'tweetanew-editdefault' => 'SAYFA GÜNCELLENDİ: $1 - $2',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Hzy980512
  */
 $messages['zh-hans'] = array(
