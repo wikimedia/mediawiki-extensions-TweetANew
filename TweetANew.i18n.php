@@ -272,7 +272,6 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'tweetanew-desc' => 'ページの作成/編集時にツイートする。自動的か編集ページからかは、ウィキ全体の設定に依存する',
-	'tweetanew-accesskey' => 'e',
 	'tweetanew-newaction' => 'この新しいページについてツイート',
 	'tweetanew-newtooltip' => 'この新しいページについて Twitter に情報を送信',
 	'tweetanew-editaction' => 'この編集についてツイート',
