@@ -272,6 +272,7 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'tweetanew-desc' => 'ページの作成/編集時にツイートする。自動的か編集ページからかは、ウィキ全体の設定に依存する',
+	'tweetanew-accesskey' => 'e',
 	'tweetanew-newaction' => 'この新しいページについてツイート',
 	'tweetanew-newtooltip' => 'この新しいページについて Twitter に情報を送信',
 	'tweetanew-editaction' => 'この編集についてツイート',
@@ -443,7 +444,8 @@ $messages['sr-ec'] = array(
 	'tweetanew-authorcredit' => 'од',
 );
 
-/** Serbian (Latin script) (srpski (latinica)‎) */
+/** Serbian (Latin script) (srpski (latinica)‎)
+ */
 $messages['sr-el'] = array(
 	'tweetanew-minoredit' => 'm',
 	'tweetanew-authorcredit' => 'od',
@@ -508,10 +510,10 @@ $messages['zh-hans'] = array(
 	'tweetanew-newtooltip' => '发送该新页面的信息至Twitter',
 );
 
-/** Traditional Chinese (中文（繁體）‎) */
+/** Traditional Chinese (中文（繁體）‎)
+ */
 $messages['zh-hant'] = array(
 	'tweetanew-desc' => '創建或編輯頁面時會發出廣播。主要取決於整個維基的設置。',
 	'tweetanew-newaction' => '該新頁面的廣播',
 	'tweetanew-newtooltip' => '發送該新頁面的信息至Twitter',
 );
-
