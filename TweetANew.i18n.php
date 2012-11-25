@@ -137,6 +137,9 @@ $messages['de'] = array(
  * @author Erdemaslancan
  */
 $messages['diq'] = array(
+	'tweetanew-minoredit' => 'q',
+	'tweetanew-authorcredit' => 'kerden',
+	'tweetanew-newdefault' => 'PERA NEWİ: $1 - $2',
 	'tweetanew-editdefault' => 'PELA NEWENYÊ: $1 - $2',
 );
 
