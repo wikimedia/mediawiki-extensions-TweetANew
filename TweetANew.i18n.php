@@ -164,6 +164,20 @@ $messages['es'] = array(
 	'tweetanew-edit3' => 'Revise $2  -hay algunos contenidos nuevos en la dirección $1',
 );
 
+/** Estonian (eesti)
+ * @author Avjoska
+ */
+$messages['et'] = array(
+	'tweetanew-minoredit' => 'p',
+);
+
+/** Persian (فارسی)
+ * @author Mjbmr
+ */
+$messages['fa'] = array(
+	'tweetanew-authorcredit' => 'توسط',
+);
+
 /** French (français)
  * @author Crochet.david
  * @author Gomoko
