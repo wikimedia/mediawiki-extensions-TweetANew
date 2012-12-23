@@ -143,6 +143,13 @@ $messages['diq'] = array(
 	'tweetanew-editdefault' => 'PELA NEWENYÊ: $1 - $2',
 );
 
+/** Esperanto (Esperanto)
+ * @author Blahma
+ */
+$messages['eo'] = array(
+	'tweetanew-minoredit' => 'e',
+);
+
 /** Spanish (español)
  * @author Armando-Martin
  */
@@ -467,6 +474,26 @@ $messages['sr-el'] = array(
 	'tweetanew-authorcredit' => 'od',
 );
 
+/** Swedish (svenska)
+ * @author WikiPhoenix
+ */
+$messages['sv'] = array(
+	'tweetanew-newaction' => 'Twittra om denna nya sida',
+	'tweetanew-newtooltip' => 'Skicka information om denna nya sida till Twitter',
+	'tweetanew-editaction' => 'Twittra om denna redigering',
+	'tweetanew-edittooltip' => 'Skicka information om denna redigering till Twitter',
+	'tweetanew-minoredit' => 'm',
+	'tweetanew-authorcredit' => 'av',
+	'tweetanew-newdefault' => 'NY SIDA: $1 - $2',
+	'tweetanew-new1' => 'Ser ut som $1 skapades på $2',
+	'tweetanew-new2' => '$1 skapades nyligen på $2',
+	'tweetanew-new3' => 'Spana in $2 - den har en ny sida på $1',
+	'tweetanew-editdefault' => 'UPPDATERAD SIDA: $1 - $2',
+	'tweetanew-edit1' => 'Ser ut som $1 uppdaterades på $2',
+	'tweetanew-edit2' => '$1 ändrades nyligen på $2',
+	'tweetanew-edit3' => 'Spana in $2 - den har lite nytt innehåll på $1',
+);
+
 /** Tamil (தமிழ்)
  * @author Karthi.dr
  * @author Shanmugamp7
@@ -519,17 +546,25 @@ $messages['tr'] = array(
 
 /** Simplified Chinese (中文（简体）‎)
  * @author Hzy980512
+ * @author Shirayuki
  */
 $messages['zh-hans'] = array(
 	'tweetanew-desc' => '创建或编辑页面时会发出广播。主要取决于整个维基的设置。',
 	'tweetanew-newaction' => '该新页面的广播',
 	'tweetanew-newtooltip' => '发送该新页面的信息至Twitter',
+	'tweetanew-minoredit' => '小',
+	'tweetanew-authorcredit' => '由',
+	'tweetanew-newdefault' => '新页面：$1 - $2',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
+ * @author Shirayuki
  */
 $messages['zh-hant'] = array(
 	'tweetanew-desc' => '創建或編輯頁面時會發出廣播。主要取決於整個維基的設置。',
 	'tweetanew-newaction' => '該新頁面的廣播',
 	'tweetanew-newtooltip' => '發送該新頁面的信息至Twitter',
+	'tweetanew-minoredit' => '小',
+	'tweetanew-authorcredit' => '由',
+	'tweetanew-newdefault' => '新頁面：$1 - $2',
 );
