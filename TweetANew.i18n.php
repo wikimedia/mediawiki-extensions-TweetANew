@@ -407,6 +407,27 @@ $messages['pfl'] = array(
 	'tweetanew-edit3' => "Guggd mol $2 oa - s'hod oinische naije Inhald uff $1",
 );
 
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'tweetanew-desc' => "A son-a quand che na pagina a l'é creà o modificà. An dipendensa dai gust ampostà për l'antera wiki, o automaticament o da la pagina ëd modifica.",
+	'tweetanew-newaction' => 'Son-a a propòsit dë sta neuva pagina',
+	'tweetanew-newtooltip' => 'Spediss anformassion a propòsit dë sta neuva pagina a Twitter',
+	'tweetanew-editaction' => 'Son-a a propòsit dë sta modifica',
+	'tweetanew-edittooltip' => 'Spediss anformassion a propòsit dë sta modìfica a Twitter',
+	'tweetanew-minoredit' => 'm',
+	'tweetanew-authorcredit' => 'da',
+	'tweetanew-newdefault' => 'PAGINA NEUVA: $1 - $2',
+	'tweetanew-new1' => 'A smija com $1 a sia stàita creà ai $2',
+	'tweetanew-new2' => "$1 a l'é stàit recentement creà ai $2",
+	'tweetanew-new3' => "Contròla $2 - a l'ha na neuva pagina ai $1",
+	'tweetanew-editdefault' => "PAGINA MODIFICA': $1 - $2",
+	'tweetanew-edit1' => 'A smija com $1 a sia stàit modificà ai $2',
+	'tweetanew-edit2' => "$1 a l'é stàit recentement cangià ai $2",
+	'tweetanew-edit3' => "Contròla $2 - a l'ha quaich neuv contnù ai $1",
+);
+
 /** Pashto (پښتو)
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
