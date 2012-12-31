@@ -457,6 +457,14 @@ $messages['pt'] = array(
 	'tweetanew-edit1' => 'Parece que $1 foi atualizado em $2',
 );
 
+/** Romanian (română)
+ * @author Stelistcristi
+ */
+$messages['ro'] = array(
+	'tweetanew-editaction' => 'Tweetuiește despre această modificare',
+	'tweetanew-authorcredit' => 'de',
+);
+
 /** Russian (русский)
  * @author Kalan
  */
