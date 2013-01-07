@@ -112,6 +112,13 @@ $messages['br'] = array(
 	'tweetanew-edit3' => 'Gwiriit $2 - tammoù boued nevez zo e $1',
 );
 
+/** Sorani Kurdish (کوردی)
+ * @author Calak
+ */
+$messages['ckb'] = array(
+	'tweetanew-authorcredit' => 'لە لایەن',
+);
+
 /** Czech (česky)
  * @author Vks
  */
@@ -415,10 +422,11 @@ $messages['pfl'] = array(
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'tweetanew-desc' => "A son-a quand che na pagina a l'é creà o modificà. An dipendensa dai gust ampostà për l'antera wiki, o automaticament o da la pagina ëd modifica.",
+	'tweetanew-desc' => "A zagaja quand che na pàgina a l'é creà o modificà. Sconda dij gust ampostà për la wiki antrega, o automaticament o da la pàgina ëd modifica.",
 	'tweetanew-newaction' => 'Son-a a propòsit dë sta neuva pagina',
 	'tweetanew-newtooltip' => 'Spediss anformassion a propòsit dë sta neuva pagina a Twitter',
 	'tweetanew-editaction' => 'Son-a a propòsit dë sta modifica',
