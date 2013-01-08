@@ -427,20 +427,20 @@ $messages['pfl'] = array(
  */
 $messages['pms'] = array(
 	'tweetanew-desc' => "A zagaja quand che na pàgina a l'é creà o modificà. Sconda dij gust ampostà për la wiki antrega, o automaticament o da la pàgina ëd modifica.",
-	'tweetanew-newaction' => 'Son-a a propòsit dë sta neuva pagina',
-	'tweetanew-newtooltip' => 'Spediss anformassion a propòsit dë sta neuva pagina a Twitter',
-	'tweetanew-editaction' => 'Son-a a propòsit dë sta modifica',
-	'tweetanew-edittooltip' => 'Spediss anformassion a propòsit dë sta modìfica a Twitter',
-	'tweetanew-minoredit' => 'm',
+	'tweetanew-newaction' => 'Zagajé a propòsit dë sta neuva pàgina',
+	'tweetanew-newtooltip' => "Spedì dj'anformassion a propòsit dë sta neuva pàgina su Twitter",
+	'tweetanew-editaction' => 'Zagajé a propòsit dë sta modifica',
+	'tweetanew-edittooltip' => "Spedì dj'anformassion a propòsit dë sta modìfica a Twitter",
+	'tweetanew-minoredit' => 'c',
 	'tweetanew-authorcredit' => 'da',
-	'tweetanew-newdefault' => 'PAGINA NEUVA: $1 - $2',
-	'tweetanew-new1' => 'A smija com $1 a sia stàita creà ai $2',
-	'tweetanew-new2' => "$1 a l'é stàit recentement creà ai $2",
-	'tweetanew-new3' => "Contròla $2 - a l'ha na neuva pagina ai $1",
-	'tweetanew-editdefault' => "PAGINA MODIFICA': $1 - $2",
-	'tweetanew-edit1' => 'A smija com $1 a sia stàit modificà ai $2',
-	'tweetanew-edit2' => "$1 a l'é stàit recentement cangià ai $2",
-	'tweetanew-edit3' => "Contròla $2 - a l'ha quaich neuv contnù ai $1",
+	'tweetanew-newdefault' => 'PÀGINA NEUVA: $1 - $2',
+	'tweetanew-new1' => 'A smija che $1 a sia stàita creà su $2',
+	'tweetanew-new2' => "$1 a l'é stàit recentement creà su $2",
+	'tweetanew-new3' => "Ch'a contròla $2 - a l'ha na neuva pàgina su $1",
+	'tweetanew-editdefault' => 'PÀGINA AGIORNÀ: $1 - $2',
+	'tweetanew-edit1' => 'A smija che $1 a sia stàit modificà su $2',
+	'tweetanew-edit2' => "$1 a l'é stàit recentement modificà su $2",
+	'tweetanew-edit3' => "Ch'a contròla $2 - a l'ha dël contnù neuv su $1",
 );
 
 /** Pashto (پښتو)
