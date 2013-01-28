@@ -74,6 +74,27 @@ $messages['ar'] = array(
 	'tweetanew-minoredit' => 'ط',
 );
 
+/** Asturian (asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'tweetanew-desc' => "Tuitear cuando se crea o edita una páxina. Dependiendo de les preferencies configuraes pa la wiki ensembre, o de mou automáticu o dende a páxina d'edición.",
+	'tweetanew-newaction' => 'Tuitear sobro esta páxina nueva',
+	'tweetanew-newtooltip' => 'Unviar información tocante a esta nueva páxina a Twitter',
+	'tweetanew-editaction' => 'Tuitear sobro esta edición',
+	'tweetanew-edittooltip' => 'Unviar información tocante a esta edición a Twitter',
+	'tweetanew-minoredit' => 'm',
+	'tweetanew-authorcredit' => 'por',
+	'tweetanew-newdefault' => 'PÁXINA NUEVA: $1 - $2',
+	'tweetanew-new1' => 'Paez que se creó $1 en $2',
+	'tweetanew-new2' => '$1 vien de crease en $2',
+	'tweetanew-new3' => 'Revise $2  - tien una páxina nueva sobro $1',
+	'tweetanew-editdefault' => 'PÁXINA ANOVADA: $1 - $2',
+	'tweetanew-edit1' => "Paez que s'anovó $1 en $2",
+	'tweetanew-edit2' => '$1 vien de camudase en $2',
+	'tweetanew-edit3' => 'Revise $2  - tien conteníu nuevu sobro $1',
+);
+
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Wizardist
