@@ -644,14 +644,18 @@ $messages['uk'] = array(
 /** Simplified Chinese (中文（简体）‎)
  * @author Hzy980512
  * @author Shirayuki
+ * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
 	'tweetanew-desc' => '创建或编辑页面时会发出广播。主要取决于整个维基的设置。',
 	'tweetanew-newaction' => '该新页面的广播',
 	'tweetanew-newtooltip' => '发送该新页面的信息至Twitter',
+	'tweetanew-editaction' => '推此编辑',
+	'tweetanew-edittooltip' => '发送有关此编辑的信息到Twitter',
 	'tweetanew-minoredit' => '小',
 	'tweetanew-authorcredit' => '由',
 	'tweetanew-newdefault' => '新页面：$1 - $2',
+	'tweetanew-editdefault' => '已更新页面：$1 - $2',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
