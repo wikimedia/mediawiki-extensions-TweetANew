@@ -32,9 +32,10 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Gregory Varnum
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
-	'tweetanew-desc' => '{{desc}}',
+	'tweetanew-desc' => '{{desc|name=Tweet A New|url=http://www.mediawiki.org/wiki/Extension:TweetANew}}',
 	'tweetanew-newaction' => 'Used in editpage as description for option to tweet, if auto-tweet is disabled for new page',
 	'tweetanew-newtooltip' => 'Tooltip describing option to tweet about new page from edit page, if otherwise enabled',
 	'tweetanew-editaction' => 'Used in editpage as description for option to tweet, if auto-tweet is disabled for edits',
