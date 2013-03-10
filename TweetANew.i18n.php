@@ -555,6 +555,7 @@ $messages['sr-el'] = array(
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
+	'tweetanew-desc' => 'Twittrar när en sida skapas eller redigeras, beroende på de angivna inställningarna för hela wikin; antingen automatiskt eller från redigeringssidan.',
 	'tweetanew-newaction' => 'Twittra om denna nya sida',
 	'tweetanew-newtooltip' => 'Skicka information om denna nya sida till Twitter',
 	'tweetanew-editaction' => 'Twittra om denna redigering',
