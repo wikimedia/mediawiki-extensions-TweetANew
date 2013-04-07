@@ -221,6 +221,20 @@ $messages['fa'] = array(
 	'tweetanew-authorcredit' => 'توسط',
 );
 
+/** Finnish (suomi)
+ * @author Silvonen
+ */
+$messages['fi'] = array(
+	'tweetanew-desc' => 'Twiittaa sivun luomisesta tai muokkaamisesta. Tämä tapahtuu koko wikin asetusten mukaan joko automaattisesti tai muokkaussivulta.',
+	'tweetanew-newaction' => 'Twiittaa tästä uudesta sivusta',
+	'tweetanew-newtooltip' => 'Tiedota tästä uudesta sivusta Twitterissä',
+	'tweetanew-editaction' => 'Twiittaa tästä muokkauksesta',
+	'tweetanew-edittooltip' => 'Tiedota tästä muokkauksesta Twitterissä',
+	'tweetanew-minoredit' => 'p',
+	'tweetanew-newdefault' => 'UUSI SIVU: $1 – $2',
+	'tweetanew-editdefault' => 'PÄIVITETTY SIVU: $1 – $2',
+);
+
 /** French (français)
  * @author Crochet.david
  * @author Gomoko
