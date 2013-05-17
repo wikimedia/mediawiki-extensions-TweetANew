@@ -509,6 +509,15 @@ $messages['ro'] = array(
 	'tweetanew-authorcredit' => 'de',
 );
 
+/** tarandíne (tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'tweetanew-minoredit' => 'm',
+	'tweetanew-authorcredit' => 'da',
+	'tweetanew-newdefault' => 'PAGENA NOVE: $1 - $2',
+);
+
 /** Russian (русский)
  * @author Kalan
  */
