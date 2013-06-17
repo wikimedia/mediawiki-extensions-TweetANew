@@ -684,13 +684,23 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (中文（繁體）‎)
+ * @author Justincheng12345
  * @author Shirayuki
  */
 $messages['zh-hant'] = array(
 	'tweetanew-desc' => '創建或編輯頁面時會發出廣播。主要取決於整個維基的設置。',
 	'tweetanew-newaction' => '該新頁面的廣播',
 	'tweetanew-newtooltip' => '發送該新頁面的信息至Twitter',
+	'tweetanew-editaction' => '推此編輯',
+	'tweetanew-edittooltip' => '發送此次編輯的資訊至Twitter',
 	'tweetanew-minoredit' => '小',
 	'tweetanew-authorcredit' => '由',
 	'tweetanew-newdefault' => '新頁面：$1 - $2',
+	'tweetanew-new1' => '看來由$1於$2創建',
+	'tweetanew-new2' => '$1最近於$2完成',
+	'tweetanew-new3' => '查閱$2－它在$1上有新一頁',
+	'tweetanew-editdefault' => '已更新頁面：$1－$2',
+	'tweetanew-edit1' => '看來由$1於$2更新',
+	'tweetanew-edit2' => '$1最近於$2更改',
+	'tweetanew-edit3' => '查閱$2－它在$1上有新內容',
 );
