@@ -44,7 +44,8 @@ $messages['qqq'] = array(
 	'tweetanew-authorcredit' => 'Used to provide credit to author of edit or new page',
 	'tweetanew-newdefault' => 'Default tweet message used for new page, if random messages are disabled. Parameters:
 * $1 is title of the new page
-* $2 is the final URL of the new page - shortened if a service is enabled via this extension',
+* $2 is the final URL of the new page - shortened if a service is enabled via this extension
+{{Identical|New page}}',
 	'tweetanew-new1' => 'First random tweet message used for new pages, if random messages are enabled. Parameters:
 * $1 is title of the new page
 * $2 is the final URL of the new page - shortened if a service is enabled via this extension',
