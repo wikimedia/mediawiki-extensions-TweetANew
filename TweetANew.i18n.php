@@ -670,6 +670,7 @@ $messages['uk'] = array(
 /** Simplified Chinese (中文（简体）‎)
  * @author Hzy980512
  * @author Shirayuki
+ * @author Xiaomingyan
  * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
@@ -680,7 +681,7 @@ $messages['zh-hans'] = array(
 	'tweetanew-edittooltip' => '发送有关此编辑的信息到Twitter',
 	'tweetanew-minoredit' => '小',
 	'tweetanew-authorcredit' => '由',
-	'tweetanew-newdefault' => '新页面：$1 - $2',
+	'tweetanew-newdefault' => '新页面：$1-­­­­$2­­',
 	'tweetanew-editdefault' => '已更新页面：$1 - $2',
 );
 
