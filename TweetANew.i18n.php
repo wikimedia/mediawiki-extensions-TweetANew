@@ -514,6 +514,7 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'tweetanew-newaction' => 'Cinguette sus a sta pàgena nove',
 	'tweetanew-minoredit' => 'm',
 	'tweetanew-authorcredit' => 'da',
 	'tweetanew-newdefault' => 'PAGENA NOVE: $1 - $2',
