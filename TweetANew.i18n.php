@@ -41,7 +41,8 @@ $messages['qqq'] = array(
 	'tweetanew-editaction' => 'Used in editpage as description for option to tweet, if auto-tweet is disabled for edits',
 	'tweetanew-edittooltip' => 'Tooltip describing option to tweet about edit from edit page, if otherwise enabled',
 	'tweetanew-minoredit' => 'Indicator used when edit is marked as minor, if minor edits are not already skipped - skip following indicator can be removed using MinorSpace setting',
-	'tweetanew-authorcredit' => 'Used to provide credit to author of edit or new page',
+	'tweetanew-authorcredit' => 'Used to provide credit to author of edit or new page.
+{{Identical|By}}',
 	'tweetanew-newdefault' => 'Default tweet message used for new page, if random messages are disabled. Parameters:
 * $1 is title of the new page
 * $2 is the final URL of the new page - shortened if a service is enabled via this extension
