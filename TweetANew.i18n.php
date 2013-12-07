@@ -143,7 +143,7 @@ $messages['ckb'] = array(
 	'tweetanew-authorcredit' => 'لە لایەن',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Vks
  */
 $messages['cs'] = array(
