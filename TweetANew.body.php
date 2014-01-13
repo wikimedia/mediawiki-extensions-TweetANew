@@ -254,7 +254,7 @@ class TweetANew {
 
 		# Make tweet message
 		$tmhOAuth->request( 'POST',
-			$tmhOAuth->url( '1/statuses/update' ),
+			$tmhOAuth->url( '1.1/statuses/update' ),
 			array( 'status' => $tweet_text )
 		);
 		return true;
