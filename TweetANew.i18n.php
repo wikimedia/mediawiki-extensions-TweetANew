@@ -374,6 +374,13 @@ $messages['ka'] = array(
 	'tweetanew-editdefault' => 'განახლებული გვერდი: $1 - $2',
 );
 
+/** Korean (한국어)
+ * @author Priviet
+ */
+$messages['ko'] = array(
+	'tweetanew-minoredit' => '잔글',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
