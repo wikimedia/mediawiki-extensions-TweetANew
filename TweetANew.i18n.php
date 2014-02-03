@@ -217,10 +217,16 @@ $messages['et'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Armin1392
  * @author Mjbmr
  */
 $messages['fa'] = array(
+	'tweetanew-minoredit' => 'ام',
 	'tweetanew-authorcredit' => 'توسط',
+	'tweetanew-newdefault' => 'صفحهٔ جدید: $1 - $2',
+	'tweetanew-new2' => '$1 اخیراً در $2 ایجاد شد',
+	'tweetanew-editdefault' => 'صفحهٔ به روز شده: $1 - $2',
+	'tweetanew-edit2' => '$1 اخیراً در $2 تغییر کرده',
 );
 
 /** Finnish (suomi)
