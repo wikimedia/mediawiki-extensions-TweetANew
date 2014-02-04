@@ -136,6 +136,13 @@ $messages['br'] = array(
 	'tweetanew-edit3' => 'Gwiriit $2 - tammoù boued nevez zo e $1',
 );
 
+/** Chechen (нохчийн)
+ * @author Умар
+ */
+$messages['ce'] = array(
+	'tweetanew-minoredit' => 'м',
+);
+
 /** Sorani Kurdish (کوردی)
  * @author Calak
  */
