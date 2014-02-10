@@ -19,8 +19,13 @@
  *    This lives at: https://github.com/themattharris/tmhOAuth
  *    The most recent edition (as of this version's publish date) is included with this extension.
  *
- * Thank you to Johnduhart, Reedy, SPQRobin, krinkle and Nikerabbit for feedback, bug reporting and cleaning up code
- * Thank you to Raymond, Crochet.david, Gomoko, Toliño, Bjankuloski06, Inholland, SPQRobin
+ * Thank you to Johnduhart, Reedy, SPQRobin, krinkle, Nikerabbit, and Dereckson for feedback, bug reporting, bug fixing
+ *    and cleaning up code
+ * Thank you to Raymond, Crochet.david, Gomoko, Toliño, Bjankuloski06, Inholland, SPQRobin, Shirayuki, Meno25, Xuacu, Wizardist,
+ *    EugeneZelenko, Fulup, Умар, Calak, Vks, Kghbln, Erdemaslancan, Blahma, Armando-Martin, Avjoska, Armin1392, Mjbmr, Silvonen, 
+ *    McDutchie, ChrisPtDe, Michawiki, Beta16, David1010, Priviet, Robby, Siebrand, Manuae, Borichètm, Dragonòt, SandroHc, 
+ *    Ahmed-Najib-Biabani-Ibrahimkhel, Stelistcristi, Joetaras, Kalan, පසිඳු කාවින්ද, Rancher, WikiPhoenix, Shanmugamp7, Veeven,
+ *    AnakngAraw, Emperyan, Bilalokms, Ата, Hzy980512, Xiaomingyan, Yfdyh000, Justincheng12345, 
  *    and others mentioned in TweetANew.i18n.php for translation work
  *
  */
@@ -92,7 +97,9 @@ if( !defined( 'MEDIAWIKI' ) ) {
  *			  Default is false
  * $wgTweetANewEditpage['Checked']
  *			- Determine if checkbox to tweet from edit page is automatically checked
- *			  Default is false
+ * $wgTweetANewBlacklist = array('',);
+ *			- Array of pages blacklisted
+ *			  Example: $wgTweetANewBlacklist = array('BadPage1','BadPage2');
  * $wgTweetANewTwitter['ConsumerKey']
  *			- Consumer key provided at https://dev.twitter.com/apps - be sure to have write and read permissions
  * $wgTweetANewTwitter['ConsumerSecret']
@@ -101,7 +108,7 @@ if( !defined( 'MEDIAWIKI' ) ) {
  *			- Access token provided by the OAuth tool at https://dev.twitter.com/apps - be sure to have write and read permissions
  * $wgTweetANewTwitter['AccessTokenSecret']
  *			- Access token secret provided by the OAuth tool at https://dev.twitter.com/apps
- 			     Be sure to have write and read permissions
+ *			  Be sure to have write and read permissions
  * $wgTweetANewBitly['Enable']
  * 			- Display URL as bitly link - allowing you to track usage via your bitly account
  *			  Default is false
@@ -109,6 +116,12 @@ if( !defined( 'MEDIAWIKI' ) ) {
  *			- If bitly link display is enabled, enter your bitly user account - signup at: http://bitly.com/a/sign_up
  * $wgTweetANewBitly['API']
  *			- If bitly link display is enabled, enter your bitly API key - find your API key at: http://bitly.com/a/your_api_key
+ * $wgTweetANewGoogl['Enable']
+ * 			- Display URL as goo.gl link - allowing you to track usage via your Google Account
+ *			  Default is false
+ * $wgTweetANewGoogl['API']
+ *			- If goo.gl link display is enabled, enter your goo.gl API key
+ *			  Enable the URL shortener API and find your API key at: http://code.google.com/apis/console/
  *
  */
 
@@ -138,6 +151,8 @@ $wgTweetANewEditpage = array(
 	'Checked' => false, // Only applies if $wgTweetANewEditpage['Enable'] = true
 );
 
+$wgTweetANewBlacklist = array('',);
+
 $wgTweetANewTwitter = array(
 	'ConsumerKey' => '',
 	'ConsumerSecret' => '',
@@ -147,8 +162,13 @@ $wgTweetANewTwitter = array(
 
 $wgTweetANewBitly = array(
 	'Enable' => false,
-	'Login' => '',
-	'API' => '',
+	'Login' => '', // Signup at: http://bitly.com/a/sign_up
+	'API' => '', // Find your API key at: http://bitly.com/a/your_api_key
+);
+
+$wgTweetANewGoogl = array(
+	'Enable' => false,
+	'API' => '', // Enable this API and get API key from : http://code.google.com/apis/console/
 );
 
 /**
@@ -161,7 +181,7 @@ $dir = dirname(__FILE__) . '/';
 $wgAutoloadClasses['TweetANew'] = $dir . 'TweetANew.body.php';
 $wgAutoloadClasses['tmhOAuth'] = $dir . 'lib/tmhOAuth.php';
 $wgAutoloadClasses['tmhUtilities'] = $dir . 'lib/tmhUtilities.php';
-
+$wgAutoloadClasses['GoogleURL'] = $dir . 'lib/GoogleURL.php';
 $wgExtensionMessagesFiles['TweetANew'] = $dir . 'TweetANew.i18n.php';
 
 /**
@@ -172,7 +192,7 @@ $wgExtensionMessagesFiles['TweetANew'] = $dir . 'TweetANew.i18n.php';
 $wgExtensionCredits['other'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'TweetANew',
-	'version'        => '1.0.20111229-beta',
+	'version'        => '1.0.20140209',
 	'author'         => '[https://www.mediawiki.org/wiki/User:Varnent Gregory Varnum] after merging extensions by
 						[https://www.mediawiki.org/wiki/User:Joa_ds Joachim De Schrijver], Andrew Fitzgerald, Wendell Gaudencio, and Rohit Keshwani',
 	'descriptionmsg' => 'tweetanew-desc',

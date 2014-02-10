@@ -1,4 +1,4 @@
-<?php
+ <?php
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die();
 }
@@ -73,6 +73,7 @@ class TweetANew {
 			
 			# Call to function for assembling and trimming tweet (if necessary) - then connecting and sending tweet to Twitter
 			self::makeSendTweet(
+				$article,
 				$tweet_text,
 				$finalurl
 			);
@@ -159,7 +160,7 @@ class TweetANew {
 				$tweet_text = wfMsg( 'tweetanew-minoredit' );
 				# Add a space after the indicator if $wgTweetANewText['MinorSpace'] is true
 				if ( $minoredit !== 0 && $wgTweetANewText['MinorSpace'] ) {
-					$tweet_text .= '&nbsp;';
+					$tweet_text .= ' ';
 				}
 			}
 
@@ -191,6 +192,7 @@ class TweetANew {
 
 			# Call to function for preparing and sending tweet
 			self::makeSendTweet(
+				$article,
 				$tweet_text,
 				$finalurl
 			);
@@ -205,17 +207,28 @@ class TweetANew {
 	 * @return string
 	 */
 	public static function makeFinalUrl( $longurl ) {
-		global $wgTweetANewBitly, $wgOut;
+		global $wgTweetANewBitly, $wgOut, $wgTweetANewGoogl;
 		
 		# Check setting to enable/disable use of bitly
 		if ( $wgTweetANewBitly['Enable'] ) {
+
 			# Generate url for bitly
 			$shortened = "https://api-ssl.bitly.com/v3/shorten?longUrl="
 				. urlencode( $longurl ) . "&login=" . $wgTweetANewBitly['Login']
 				. "&apiKey=" . $wgTweetANewBitly['API'] . "&format=txt";
 
-			# Get the url
+			# Get the url from bitly
 			$response = Http::get($shortened);
+		}
+		
+		# Check setting to enable/disable use of goo.gl
+		elseif ( $wgTweetANewGoogl['Enable'] ) {
+
+			# Setup goo.gl
+			$url = new GoogleURL($wgTweetANewGoogl['API']);
+
+			# Generate url from goo.gl
+			$response = $url->shorten($longurl);
 		} else {
 			$response = $longurl;
 		}
@@ -225,38 +238,43 @@ class TweetANew {
 	/**
 	 * Function for connecting to Twitter, preparing and then sending tweet
 	 *
+	 * @param $article Article
 	 * @param $tweet_text
 	 * @param $finalurl
 	 * @return bool
 	 */
-	public static function makeSendTweet( $tweet_text, $finalurl ) {
-		global $wgTweetANewTwitter, $wgLang;
-		
-		# Calculate length of tweet factoring in longURL
-		if ( strlen( $finalurl ) > 20 ) {
-			$tweet_text_count = ( strlen( $finalurl ) - 20 ) + 140;
-		} else {
-			$tweet_text_count = 140;
+	public static function makeSendTweet( $article, $tweet_text, $finalurl ) {
+		global $wgTweetANewTwitter, $wgTweetANewBlacklist, $wgLang;
+
+		if ( !in_array($article->getTitle()->getText(), $wgTweetANewBlacklist) ) {
+	        # Calculate length of tweet factoring in t.co 
+ 	       if ( stripos( $finalurl, 'https:' ) !== false ) {
+	            $tweet_text_count = 140 - 23 + mb_strlen( $finalurl );
+	        } elseif ( stripos( $finalurl, 'http:' ) !== false ) {
+	            $tweet_text_count = 140 - 22 + mb_strlen( $finalurl );
+			} else {
+				$tweet_text_count = 140;
+			}
+
+			# Check if length of tweet is beyond 140 characters and shorten if necessary
+			if ( mb_strlen( $tweet_text ) > $tweet_text_count ) {
+				$tweet_text = $wgLang->mb_substr( $tweet_text, 0, $tweet_text_count - 3 )  . '...';
+			}
+
+			# Make connection to Twitter
+			$tmhOAuth = new tmhOAuth( array(
+				'consumer_key' => $wgTweetANewTwitter['ConsumerKey'],
+				'consumer_secret' => $wgTweetANewTwitter['ConsumerSecret'],
+				'user_token' => $wgTweetANewTwitter['AccessToken'],
+				'user_secret' => $wgTweetANewTwitter['AccessTokenSecret'],
+			) );
+
+			# Make tweet message
+			$tmhOAuth->request( 'POST',
+				$tmhOAuth->url( '1.1/statuses/update' ),
+				array( 'status' => $tweet_text )
+			);
+			return true;
 		}
-
-		# Check if length of tweet is beyond 140 characters and shorten if necessary
-		if ( strlen( $tweet_text ) > $tweet_text_count ) {
-			$tweet_text = $wgLang->truncate( $tweet_text, $tweet_text_count );
-		}
-
-		# Make connection to Twitter
-		$tmhOAuth = new tmhOAuth( array(
-			'consumer_key' => $wgTweetANewTwitter['ConsumerKey'],
-			'consumer_secret' => $wgTweetANewTwitter['ConsumerSecret'],
-			'user_token' => $wgTweetANewTwitter['AccessToken'],
-			'user_secret' => $wgTweetANewTwitter['AccessTokenSecret'],
-		) );
-
-		# Make tweet message
-		$tmhOAuth->request( 'POST',
-			$tmhOAuth->url( '1.1/statuses/update' ),
-			array( 'status' => $tweet_text )
-		);
-		return true;
 	}
 }
