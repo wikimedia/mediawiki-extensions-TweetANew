@@ -228,11 +228,17 @@ $messages['et'] = array(
  * @author Mjbmr
  */
 $messages['fa'] = array(
+	'tweetanew-newaction' => 'توییت دربارهٔ این صفحهٔ جدید',
+	'tweetanew-newtooltip' => 'فرستادن اطلاعات دربارهٔ ابن صفحهٔ جدید به توییتر',
+	'tweetanew-editaction' => 'توییت دربارهٔ این ویرایش',
+	'tweetanew-edittooltip' => 'فرستادن اطلاعات دربارهٔ این ویرایش به توییتر',
 	'tweetanew-minoredit' => 'ام',
 	'tweetanew-authorcredit' => 'توسط',
 	'tweetanew-newdefault' => 'صفحهٔ جدید: $1 - $2',
+	'tweetanew-new1' => 'شبیه $1 در $2 ایجاد شد',
 	'tweetanew-new2' => '$1 اخیراً در $2 ایجاد شد',
 	'tweetanew-editdefault' => 'صفحهٔ به روز شده: $1 - $2',
+	'tweetanew-edit1' => 'شبیه $1 در $2 به روز شد',
 	'tweetanew-edit2' => '$1 اخیراً در $2 تغییر کرده',
 );
 
