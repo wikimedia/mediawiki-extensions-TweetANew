@@ -228,6 +228,7 @@ $messages['et'] = array(
  * @author Mjbmr
  */
 $messages['fa'] = array(
+	'tweetanew-desc' => 'توییت هنگامی که یک صفحه ایجاد یا ویرایش شده‌است. بسته به اولویت‌های تنظیم برای کل ویکی، یا به صورت خودکار یا از صفحه ویرایش.',
 	'tweetanew-newaction' => 'توییت دربارهٔ این صفحهٔ جدید',
 	'tweetanew-newtooltip' => 'فرستادن اطلاعات دربارهٔ ابن صفحهٔ جدید به توییتر',
 	'tweetanew-editaction' => 'توییت دربارهٔ این ویرایش',
@@ -237,9 +238,11 @@ $messages['fa'] = array(
 	'tweetanew-newdefault' => 'صفحهٔ جدید: $1 - $2',
 	'tweetanew-new1' => 'شبیه $1 در $2 ایجاد شد',
 	'tweetanew-new2' => '$1 اخیراً در $2 ایجاد شد',
+	'tweetanew-new3' => 'بررسی $2 - این یک صفحه جدید در $1 دارد',
 	'tweetanew-editdefault' => 'صفحهٔ به روز شده: $1 - $2',
 	'tweetanew-edit1' => 'شبیه $1 در $2 به روز شد',
 	'tweetanew-edit2' => '$1 اخیراً در $2 تغییر کرده',
+	'tweetanew-edit3' => 'بررسی $2 - ایم چند محتوای جدید در $1 دارد',
 );
 
 /** Finnish (suomi)
