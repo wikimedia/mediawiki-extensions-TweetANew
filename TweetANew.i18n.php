@@ -502,6 +502,14 @@ $messages['pfl'] = array(
 	'tweetanew-edit3' => "Guggd mol $2 oa - s'hod oinische naije Inhald uff $1",
 );
 
+/** Polish (polski)
+ * @author Chrumps
+ */
+$messages['pl'] = array(
+	'tweetanew-minoredit' => 'm',
+	'tweetanew-newdefault' => 'NOWA STRONA: $1 - $2',
+);
+
 /** Piedmontese (Piemontèis)
  * @author Borichèt
  * @author Dragonòt
@@ -714,6 +722,7 @@ $messages['uk'] = array(
 
 /** Simplified Chinese (中文（简体）‎)
  * @author Hzy980512
+ * @author Liuxinyu970226
  * @author Shirayuki
  * @author Xiaomingyan
  * @author Yfdyh000
@@ -728,6 +737,8 @@ $messages['zh-hans'] = array(
 	'tweetanew-authorcredit' => '由',
 	'tweetanew-newdefault' => '新页面：$1-­­­­$2­­',
 	'tweetanew-editdefault' => '已更新页面：$1 - $2',
+	'tweetanew-edit1' => '看起来$1已于$2更新',
+	'tweetanew-edit2' => '$1刚刚已于$2更新',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
