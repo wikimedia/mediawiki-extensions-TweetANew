@@ -22,10 +22,10 @@
  * Thank you to Johnduhart, Reedy, SPQRobin, krinkle, Nikerabbit, and Dereckson for feedback, bug reporting, bug fixing
  *    and cleaning up code
  * Thank you to Raymond, Crochet.david, Gomoko, Toliño, Bjankuloski06, Inholland, SPQRobin, Shirayuki, Meno25, Xuacu, Wizardist,
- *    EugeneZelenko, Fulup, Умар, Calak, Vks, Kghbln, Erdemaslancan, Blahma, Armando-Martin, Avjoska, Armin1392, Mjbmr, Silvonen, 
- *    McDutchie, ChrisPtDe, Michawiki, Beta16, David1010, Priviet, Robby, Siebrand, Manuae, Borichètm, Dragonòt, SandroHc, 
+ *    EugeneZelenko, Fulup, Умар, Calak, Vks, Kghbln, Erdemaslancan, Blahma, Armando-Martin, Avjoska, Armin1392, Mjbmr, Silvonen,
+ *    McDutchie, ChrisPtDe, Michawiki, Beta16, David1010, Priviet, Robby, Siebrand, Manuae, Borichètm, Dragonòt, SandroHc,
  *    Ahmed-Najib-Biabani-Ibrahimkhel, Stelistcristi, Joetaras, Kalan, පසිඳු කාවින්ද, Rancher, WikiPhoenix, Shanmugamp7, Veeven,
- *    AnakngAraw, Emperyan, Bilalokms, Ата, Hzy980512, Xiaomingyan, Yfdyh000, Justincheng12345, 
+ *    AnakngAraw, Emperyan, Bilalokms, Ата, Hzy980512, Xiaomingyan, Yfdyh000, Justincheng12345,
  *    and others mentioned in TweetANew.i18n.php for translation work
  *
  */
@@ -182,6 +182,7 @@ $wgAutoloadClasses['TweetANew'] = $dir . 'TweetANew.body.php';
 $wgAutoloadClasses['tmhOAuth'] = $dir . 'lib/tmhOAuth.php';
 $wgAutoloadClasses['tmhUtilities'] = $dir . 'lib/tmhUtilities.php';
 $wgAutoloadClasses['GoogleURL'] = $dir . 'lib/GoogleURL.php';
+$wgMessagesDirs['TweetANew'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['TweetANew'] = $dir . 'TweetANew.i18n.php';
 
 /**
@@ -192,7 +193,7 @@ $wgExtensionMessagesFiles['TweetANew'] = $dir . 'TweetANew.i18n.php';
 $wgExtensionCredits['other'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'TweetANew',
-	'version'        => '1.0.20140209',
+	'version'        => '1.1.0',
 	'author'         => '[https://www.mediawiki.org/wiki/User:Varnent Gregory Varnum] after merging extensions by
 						[https://www.mediawiki.org/wiki/User:Joa_ds Joachim De Schrijver], Andrew Fitzgerald, Wendell Gaudencio, and Rohit Keshwani',
 	'descriptionmsg' => 'tweetanew-desc',
