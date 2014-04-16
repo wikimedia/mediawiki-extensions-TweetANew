@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Joetaras"
-        ]
-    },
-    "tweetanew-newaction": "Cinguette sus a sta pàgena nove",
-    "tweetanew-minoredit": "m",
-    "tweetanew-authorcredit": "da",
-    "tweetanew-newdefault": "PAGENA NOVE: $1 - $2"
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"tweetanew-newaction": "Cinguette sus a sta pàgena nove",
+	"tweetanew-minoredit": "m",
+	"tweetanew-authorcredit": "da",
+	"tweetanew-newdefault": "PAGENA NOVE: $1 - $2"
 }

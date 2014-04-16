@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Bilalokms",
-            "Emperyan"
-        ]
-    },
-    "tweetanew-newaction": "Bu sayfa hakkında tweet atın",
-    "tweetanew-editaction": "Bu değişiklik hakkında tweetleyin",
-    "tweetanew-minoredit": "k",
-    "tweetanew-newdefault": "YENİ SAYFA: $1 - $2",
-    "tweetanew-editdefault": "SAYFA GÜNCELLENDİ: $1 - $2"
+	"@metadata": {
+		"authors": [
+			"Bilalokms",
+			"Emperyan"
+		]
+	},
+	"tweetanew-newaction": "Bu sayfa hakkında tweet atın",
+	"tweetanew-editaction": "Bu değişiklik hakkında tweetleyin",
+	"tweetanew-minoredit": "k",
+	"tweetanew-newdefault": "YENİ SAYFA: $1 - $2",
+	"tweetanew-editdefault": "SAYFA GÜNCELLENDİ: $1 - $2"
 }
