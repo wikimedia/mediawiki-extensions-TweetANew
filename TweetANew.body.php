@@ -111,7 +111,7 @@ class TweetANew {
 			if ( ( !MWNamespace::isContent( $article->getTitle()->getNamespace() )
 				|| ( $minoredit !== 0 && $wgTweetANewTweet['SkipMinor'] )
 				&& !$wgRequest->getCheck( 'wpTweetANewEdit' ) )
-				|| $article->estimateRevisionCount() == 1
+				|| $article->getTitle()->estimateRevisionCount() == 1
 			) {
 				return true;
 			}
