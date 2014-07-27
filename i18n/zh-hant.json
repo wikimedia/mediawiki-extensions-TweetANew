@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Justincheng12345",
-			"Shirayuki"
+			"Shirayuki",
+			"LNDDYL"
 		]
 	},
 	"tweetanew-desc": "創建或編輯頁面時會發出廣播。主要取決於整個維基的設置。",
 	"tweetanew-newaction": "該新頁面的廣播",
-	"tweetanew-newtooltip": "發送該新頁面的信息至Twitter",
+	"tweetanew-newtooltip": "傳送該新頁面的資訊至Twitter",
 	"tweetanew-editaction": "推此編輯",
 	"tweetanew-edittooltip": "發送此次編輯的資訊至Twitter",
 	"tweetanew-minoredit": "小",
