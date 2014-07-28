@@ -6,7 +6,7 @@
 			"LNDDYL"
 		]
 	},
-	"tweetanew-desc": "創建或編輯頁面時會發出廣播。主要取決於整個維基的設置。",
+	"tweetanew-desc": "建立或編輯頁面時會發出Tweet。主要取決於整個wiki的偏好設定。",
 	"tweetanew-newaction": "該新頁面的廣播",
 	"tweetanew-newtooltip": "傳送該新頁面的資訊至Twitter",
 	"tweetanew-editaction": "推此編輯",
