@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Armin1392",
-			"Mjbmr"
+			"Mjbmr",
+			"Alirezaaa"
 		]
 	},
 	"tweetanew-desc": "توییت هنگامی که یک صفحه ایجاد یا ویرایش شده‌است. بسته به اولویت‌های تنظیم برای کل ویکی، یا به صورت خودکار یا از صفحه ویرایش.",
@@ -12,7 +13,7 @@
 	"tweetanew-edittooltip": "فرستادن اطلاعات دربارهٔ این ویرایش به توییتر",
 	"tweetanew-minoredit": "ام",
 	"tweetanew-authorcredit": "توسط",
-	"tweetanew-newdefault": "صفحهٔ جدید: $1 - $2",
+	"tweetanew-newdefault": "صفحهٔ تازه: $1 - $2",
 	"tweetanew-new1": "شبیه $1 در $2 ایجاد شد",
 	"tweetanew-new2": "$1 اخیراً در $2 ایجاد شد",
 	"tweetanew-new3": "بررسی $2 - این یک صفحه جدید در $1 دارد",
