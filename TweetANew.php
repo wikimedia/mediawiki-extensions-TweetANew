@@ -33,7 +33,7 @@
 /**
  * Exit if called outside of MediaWiki
  */
-if( !defined( 'MEDIAWIKI' ) ) {
+if ( !defined( 'MEDIAWIKI' ) ) {
 	echo( "This file is an extension to the MediaWiki software and cannot be used standalone.\n" );
 	die( 1 );
 }
@@ -44,84 +44,84 @@ if( !defined( 'MEDIAWIKI' ) ) {
  * The following variables may be reset in your LocalSettings.php file.
  *
  * $wgTweetANewTweet['New']
- * 			- Automatically tweet about new articles
- *			  Default is true
+ *            - Automatically tweet about new articles
+ *              Default is true
  * $wgTweetANewTweet['Edit']
- * 			- Automatically tweet about articles when edited
- *			  Default is true
+ *            - Automatically tweet about articles when edited
+ *              Default is true
  * $wgTweetANewTweet['LessMinutesOld']
- *			- Minutes since last edit to wait before tweeting about a new edit
- *			  Default is 5
+ *            - Minutes since last edit to wait before tweeting about a new edit
+ *              Default is 5
  * $wgTweetANewTweet['SkipMinor']
- *			- Skip minor edits
- *			  Default is true
+ *            - Skip minor edits
+ *              Default is true
  * $wgTweetANewText['Minor']
- *			- Indicate in tweet if edit is marked as minor
- 			  Only applies if $wgTweetANewTweet['SkipMinor'] = false
- *			  Default is false
+ *            - Indicate in tweet if edit is marked as minor
+ * Only applies if $wgTweetANewTweet['SkipMinor'] = false
+ *              Default is false
  * $wgTweetANewText['MinorSpace']
- *			- Include a space after minor edit indicator
- 			  Only applies if $wgTweetANewTweet['SkipMinor'] = false and $wgTweetANewText['Minor'] = true
- *			  Default is true
+ *            - Include a space after minor edit indicator
+ * Only applies if $wgTweetANewTweet['SkipMinor'] = false and $wgTweetANewText['Minor'] = true
+ *              Default is true
  * $wgTweetANewText['NewRandom']
- *			- Use a mix of random messages in body of tweets about new articles
- *			  Default is true
+ *            - Use a mix of random messages in body of tweets about new articles
+ *              Default is true
  * $wgTweetANewText['NewRandomMax']
- *			- Maximum number of random messages to use
- 			  Set any additional (beyond 3) using [[MediaWiki:Tweetanew-new4]], [[MediaWiki:Tweetanew-new5]], etc.
- *			  Default is 3
+ *            - Maximum number of random messages to use
+ * Set any additional (beyond 3) using [[MediaWiki:Tweetanew-new4]], [[MediaWiki:Tweetanew-new5]], etc.
+ *              Default is 3
  * $wgTweetANewText['NewAuthor']
- *			- Display the author of the new article
- *			  Default is false
+ *            - Display the author of the new article
+ *              Default is false
  * $wgTweetANewText['NewSummary']
- *			- Display content entered into new article's summary box
- *			  Default is false
+ *            - Display content entered into new article's summary box
+ *              Default is false
  * $wgTweetANewText['EditRandom']
- *			- Use a mix of random messages in body of tweets about article edits
- *			  Default is true
+ *            - Use a mix of random messages in body of tweets about article edits
+ *              Default is true
  * $wgTweetANewText['EditRandomMax']
- *			- Maximum number of random messages to use
- 			  Set any additional (beyond 3) using [[MediaWiki:Tweetanew-edit4]], [[MediaWiki:Tweetanew-edit5]], etc.
- *			  Default is 3
+ *            - Maximum number of random messages to use
+ * Set any additional (beyond 3) using [[MediaWiki:Tweetanew-edit4]], [[MediaWiki:Tweetanew-edit5]], etc.
+ *              Default is 3
  * $wgTweetANewText['EditAuthor']
- *			- Display the author of the edit
- *			  Default is false
+ *            - Display the author of the edit
+ *              Default is false
  * $wgTweetANewText['EditSummary']
- *			- Display content entered into edit's summary box
- *			  Default is false
+ *            - Display content entered into edit's summary box
+ *              Default is false
  * $wgTweetANewText['RealName']
- *			- Determine if user's real name will be displayed instead of their username
- *			  Default is false
+ *            - Determine if user's real name will be displayed instead of their username
+ *              Default is false
  * $wgTweetANewEditpage['Enable']
- *			- Determine if checkbox to tweet from edit page if $wgTweetANewTweet['New'] = false or $wgTweetANewTweet['Edit'] = false
- *			  Default is false
+ *            - Determine if checkbox to tweet from edit page if $wgTweetANewTweet['New'] = false or $wgTweetANewTweet['Edit'] = false
+ *              Default is false
  * $wgTweetANewEditpage['Checked']
- *			- Determine if checkbox to tweet from edit page is automatically checked
+ *            - Determine if checkbox to tweet from edit page is automatically checked
  * $wgTweetANewBlacklist = array('',);
- *			- Array of pages blacklisted
- *			  Example: $wgTweetANewBlacklist = array('BadPage1','BadPage2');
+ *            - Array of pages blacklisted
+ *              Example: $wgTweetANewBlacklist = array('BadPage1','BadPage2');
  * $wgTweetANewTwitter['ConsumerKey']
- *			- Consumer key provided at https://dev.twitter.com/apps - be sure to have write and read permissions
+ *            - Consumer key provided at https://dev.twitter.com/apps - be sure to have write and read permissions
  * $wgTweetANewTwitter['ConsumerSecret']
- *			- Consumer secret provided at https://dev.twitter.com/apps - be sure to have write and read permissions
+ *            - Consumer secret provided at https://dev.twitter.com/apps - be sure to have write and read permissions
  * $wgTweetANewTwitter['AccessToken']
- *			- Access token provided by the OAuth tool at https://dev.twitter.com/apps - be sure to have write and read permissions
+ *            - Access token provided by the OAuth tool at https://dev.twitter.com/apps - be sure to have write and read permissions
  * $wgTweetANewTwitter['AccessTokenSecret']
- *			- Access token secret provided by the OAuth tool at https://dev.twitter.com/apps
- *			  Be sure to have write and read permissions
+ *            - Access token secret provided by the OAuth tool at https://dev.twitter.com/apps
+ *              Be sure to have write and read permissions
  * $wgTweetANewBitly['Enable']
- * 			- Display URL as bitly link - allowing you to track usage via your bitly account
- *			  Default is false
+ *            - Display URL as bitly link - allowing you to track usage via your bitly account
+ *              Default is false
  * $wgTweetANewBitly['Login']
- *			- If bitly link display is enabled, enter your bitly user account - signup at: http://bitly.com/a/sign_up
+ *            - If bitly link display is enabled, enter your bitly user account - signup at: http://bitly.com/a/sign_up
  * $wgTweetANewBitly['API']
- *			- If bitly link display is enabled, enter your bitly API key - find your API key at: http://bitly.com/a/your_api_key
+ *            - If bitly link display is enabled, enter your bitly API key - find your API key at: http://bitly.com/a/your_api_key
  * $wgTweetANewGoogl['Enable']
- * 			- Display URL as goo.gl link - allowing you to track usage via your Google Account
- *			  Default is false
+ *            - Display URL as goo.gl link - allowing you to track usage via your Google Account
+ *              Default is false
  * $wgTweetANewGoogl['API']
- *			- If goo.gl link display is enabled, enter your goo.gl API key
- *			  Enable the URL shortener API and find your API key at: http://code.google.com/apis/console/
+ *            - If goo.gl link display is enabled, enter your goo.gl API key
+ *              Enable the URL shortener API and find your API key at: http://code.google.com/apis/console/
  *
  */
 
@@ -133,8 +133,10 @@ $wgTweetANewTweet = array(
 );
 
 $wgTweetANewText = array(
-	'Minor' => false, // Only applies if $wgTweetANewTweet['SkipMinor'] = false
-	'MinorSpace' => true, // Only applies if $wgTweetANewTweet['SkipMinor'] = false and $wgTweetANewTweet['Minor'] = true
+	// Only applies if $wgTweetANewTweet['SkipMinor'] = false
+	'Minor' => false,
+	// Only applies if $wgTweetANewTweet['SkipMinor'] = false and $wgTweetANewTweet['Minor'] = true
+	'MinorSpace' => true,
 	'NewRandom' => true,
 	'NewRandomMax' => 3,
 	'NewAuthor' => false,
@@ -147,11 +149,13 @@ $wgTweetANewText = array(
 );
 
 $wgTweetANewEditpage = array(
-	'Enable' => false, // Only applies if $wgTweetANewTweet['New'] = false or $wgTweetANewTweet['Edit'] = false
-	'Checked' => false, // Only applies if $wgTweetANewEditpage['Enable'] = true
+	'Enable' => false,
+	// Only applies if $wgTweetANewTweet['New'] = false or $wgTweetANewTweet['Edit'] = false
+	'Checked' => false,
+	// Only applies if $wgTweetANewEditpage['Enable'] = true
 );
 
-$wgTweetANewBlacklist = array('',);
+$wgTweetANewBlacklist = array( '', );
 
 $wgTweetANewTwitter = array(
 	'ConsumerKey' => '',
@@ -173,38 +177,31 @@ $wgTweetANewGoogl = array(
 
 /**
  * Class and localisation
- *
  */
-
-$dir = dirname(__FILE__) . '/';
-
+$dir = __DIR__ . '/';
 $wgAutoloadClasses['TweetANew'] = $dir . 'TweetANew.body.php';
 $wgAutoloadClasses['tmhOAuth'] = $dir . 'lib/tmhOAuth.php';
 $wgAutoloadClasses['tmhUtilities'] = $dir . 'lib/tmhUtilities.php';
 $wgAutoloadClasses['GoogleURL'] = $dir . 'lib/GoogleURL.php';
-$wgMessagesDirs['TweetANew'] = __DIR__ . '/i18n';
+$wgMessagesDirs['TweetANew'] = $dir . 'i18n';
 $wgExtensionMessagesFiles['TweetANew'] = $dir . 'TweetANew.i18n.php';
 
 /**
  * Credits
- *
  */
-
 $wgExtensionCredits['other'][] = array(
-	'path'           => __FILE__,
-	'name'           => 'TweetANew',
-	'version'        => '1.1.0',
-	'author'         => '[https://www.mediawiki.org/wiki/User:Varnent Gregory Varnum] after merging extensions by
+	'path' => __FILE__,
+	'name' => 'TweetANew',
+	'version' => '1.1.0',
+	'author' => '[https://www.mediawiki.org/wiki/User:Varnent Gregory Varnum] after merging extensions by
 						[https://www.mediawiki.org/wiki/User:Joa_ds Joachim De Schrijver], Andrew Fitzgerald, Wendell Gaudencio, and Rohit Keshwani',
 	'descriptionmsg' => 'tweetanew-desc',
-	'url'            => 'https://www.mediawiki.org/wiki/Extension:TweetANew',
+	'url' => 'https://www.mediawiki.org/wiki/Extension:TweetANew',
 );
 
 /**
  * Call the hooks
- *
  */
-
 $wgHooks['ArticleInsertComplete'][] = 'TweetANew::TweetANewNewArticle';
 $wgHooks['ArticleSaveComplete'][] = 'TweetANew::TweetANewEditMade';
 $wgHooks['EditPageBeforeEditChecks'][] = 'efTweetANewEditCheckBox';
@@ -215,36 +212,48 @@ $wgHooks['EditPageBeforeEditChecks'][] = 'efTweetANewEditCheckBox';
  * @param $editpage
  * @param $checkboxes
  * @param $tabindex
+ *
  * @return bool
  */
-function efTweetANewEditCheckBox( &$editpage, &$checkboxes, &$tabindex) {
+function efTweetANewEditCheckBox( &$editpage, &$checkboxes, &$tabindex ) {
 	global $wgTweetANewEditpage, $wgTweetANewTweet;
 
 	# Check if article is new - if checkboxes are enabled and if auto-tweets of edits are disabled
- 	if (  $editpage->mTitle->exists() && $wgTweetANewEditpage['Enable'] && !$wgTweetANewTweet['Edit'] ) {
+	if ( $editpage->mTitle->exists() &&
+		$wgTweetANewEditpage['Enable'] &&
+		!$wgTweetANewTweet['Edit']
+	) {
 		$attribs = array(
-			'tabindex'  => ++$tabindex,
+			'tabindex' => ++$tabindex,
 			'accesskey' => wfMsg( 'tweetanew-accesskey' ),
-			'id'        => 'wpTweetANewEdit',
+			'id' => 'wpTweetANewEdit',
 		);
 
 		# Prepare checkbox
 		$checkboxes['twitter'] =
-					Xml::check( 'wpTweetANewEdit', $wgTweetANewEditpage['Checked'], $attribs ) .
-					"&nbsp;<label for='wpTweetANewEdit' title='". wfMsg('tweetanew-edittooltip')."'>".wfMsg('tweetanew-editaction')."</label>";
-	}
-	# Check if article is new - if checkboxes are enabled and if auto-tweets of new articles are disabled
+			Xml::check( 'wpTweetANewEdit', $wgTweetANewEditpage['Checked'], $attribs ) .
+			"&nbsp;<label for='wpTweetANewEdit' title='" .
+			wfMsg( 'tweetanew-edittooltip' ) .
+			"'>" .
+			wfMsg( 'tweetanew-editaction' ) .
+			"</label>";
+	} # Check if article is new - if checkboxes are enabled and if auto-tweets of new articles are disabled
 	elseif ( $wgTweetANewEditpage['Enable'] && !$wgTweetANewTweet['New'] ) {
 		$attribs = array(
-			'tabindex'  => ++$tabindex,
+			'tabindex' => ++$tabindex,
 			'accesskey' => wfMsg( 'tweetanew-accesskey' ),
-			'id'        => 'wpTweetANew',
+			'id' => 'wpTweetANew',
 		);
 
 		# Prepare checkbox
 		$checkboxes['twitter'] =
-					Xml::check( 'wpTweetANew', $wgTweetANewEditpage['Checked'], $attribs ) .
-					"&nbsp;<label for='wpTweetANew' title='". wfMsg('tweetanew-newtooltip')."'>".wfMsg('tweetanew-newaction')."</label>";
+			Xml::check( 'wpTweetANew', $wgTweetANewEditpage['Checked'], $attribs ) .
+			"&nbsp;<label for='wpTweetANew' title='" .
+			wfMsg( 'tweetanew-newtooltip' ) .
+			"'>" .
+			wfMsg( 'tweetanew-newaction' ) .
+			"</label>";
 	}
+
 	return true;
 }

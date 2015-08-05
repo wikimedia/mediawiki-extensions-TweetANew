@@ -1,4 +1,4 @@
- <?php
+<?php
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die();
 }
@@ -8,7 +8,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
  * @addtogroup Extensions
  * @license GPL
  */
-
 // TweetANew
 class TweetANew {
 
@@ -18,6 +17,7 @@ class TweetANew {
 	 * @param $article Article
 	 * @param $user User
 	 * @param $summary
+	 *
 	 * @return bool
 	 */
 	public static function TweetANewNewArticle( $article, $user, $summary ) {
@@ -50,12 +50,14 @@ class TweetANew {
 				# Setup switcher using max number set by $wgTweetANewText['NewRandomMax']
 				$switcher = rand( 1, $wgTweetANewText['NewRandomMax'] );
 				# Parse random text
-				$tweet_text = wfMsg( 'tweetanew-new' . $switcher,
+				$tweet_text = wfMsg(
+					'tweetanew-new' . $switcher,
 					array( $article->getTitle()->getText(), $finalurl )
 				);
 			} else {
 				# Use default tweet message format
-				$tweet_body = wfMsg( 'tweetanew-newdefault',
+				$tweet_body = wfMsg(
+					'tweetanew-newdefault',
 					array( $article->getTitle()->getText(), $finalurl )
 				);
 				$tweet_text = $tweet_body;
@@ -70,7 +72,7 @@ class TweetANew {
 			if ( $summary && $wgTweetANewText['NewSummary'] ) {
 				$tweet_text .= ' - ' . $summary;
 			}
-			
+
 			# Call to function for assembling and trimming tweet (if necessary) - then connecting and sending tweet to Twitter
 			self::makeSendTweet(
 				$article,
@@ -79,6 +81,7 @@ class TweetANew {
 			);
 
 		}
+
 		return true;
 	}
 
@@ -96,10 +99,22 @@ class TweetANew {
 	 * @param $revision
 	 * @param $status
 	 * @param $baseRevId
+	 *
 	 * @return bool
 	 */
-	public static function TweetANewEditMade( &$article, &$user, $text, $summary, $minoredit, $watchthis,
-		$sectionanchor, &$flags, $revision, &$status, $baseRevId ) {
+	public static function TweetANewEditMade(
+		&$article,
+		&$user,
+		$text,
+		$summary,
+		$minoredit,
+		$watchthis,
+		$sectionanchor,
+		&$flags,
+		$revision,
+		&$status,
+		$baseRevId
+	) {
 		global $wgTweetANewTweet, $wgTweetANewText, $wgRequest;
 
 		# Check if $wgTweetANewTweet['Edit'] is enabled or the Tweet checkbox was selected on the edit page
@@ -109,17 +124,18 @@ class TweetANew {
 			#   and if a minor edit, checks $wgTweetANewTweet['SkipMinor']
 			# Also prevents new articles from processing as TweetANewNewArticle function is used instead
 			if ( ( !MWNamespace::isContent( $article->getTitle()->getNamespace() )
-				|| ( $minoredit !== 0 && $wgTweetANewTweet['SkipMinor'] )
-				&& !$wgRequest->getCheck( 'wpTweetANewEdit' ) )
+					|| ( $minoredit !== 0 && $wgTweetANewTweet['SkipMinor'] )
+					&& !$wgRequest->getCheck( 'wpTweetANewEdit' ) )
 				|| $article->getTitle()->estimateRevisionCount() == 1
 			) {
 				return true;
 			}
-			
+
 			# Determine the time and date of last modification - exit if newer than $wgTweetANewTweet['LessMinutesOld']
 			# ToDo - there must be a cleaner way of doing this
 			$dbr = wfGetDB( DB_SLAVE );
-			$res = $dbr->select( 'revision',
+			$res = $dbr->select(
+				'revision',
 				array( 'rev_timestamp' ),
 				array( 'rev_page' => $article->getId() ),
 				__METHOD__,
@@ -129,12 +145,20 @@ class TweetANew {
 			foreach ( $res as $row ) {
 				$edittime[] = $row->rev_timestamp;
 			}
-			$edittimenow = mktime( substr( $edittime[0], 8, 2 ), substr( $edittime[0], 10, 2 ),
-				substr( $edittime[0], 12 ), substr( $edittime[0], 4, 2 ), substr( $edittime[0], 6, 2 ),
+			$edittimenow = mktime(
+				substr( $edittime[0], 8, 2 ),
+				substr( $edittime[0], 10, 2 ),
+				substr( $edittime[0], 12 ),
+				substr( $edittime[0], 4, 2 ),
+				substr( $edittime[0], 6, 2 ),
 				substr( $edittime[0], 0, 4 )
 			);
-			$edittimelast = mktime( substr( $edittime[1], 8, 2 ), substr( $edittime[1], 10, 2 ),
-				substr( $edittime[1], 12 ), substr( $edittime[1], 4, 2 ), substr( $edittime[1], 6, 2 ),
+			$edittimelast = mktime(
+				substr( $edittime[1], 8, 2 ),
+				substr( $edittime[1], 10, 2 ),
+				substr( $edittime[1], 12 ),
+				substr( $edittime[1], 4, 2 ),
+				substr( $edittime[1], 6, 2 ),
 				substr( $edittime[1], 0, 4 )
 			);
 			$edittimediv = $edittimenow - $edittimelast;
@@ -169,12 +193,14 @@ class TweetANew {
 				# Setup switcher using max number set by $wgTweetANewText['EditRandomMax']
 				$switcher = rand( 1, $wgTweetANewText['EditRandomMax'] );
 				# Parse random text
-				$tweet_text .= wfMsg( 'tweetanew-edit' . $switcher,
+				$tweet_text .= wfMsg(
+					'tweetanew-edit' . $switcher,
 					array( $article->getTitle()->getText(), $finalurl )
 				);
 			} else {
 				# Use default tweet message format
-				$tweet_body = wfMsg( 'tweetanew-editdefault',
+				$tweet_body = wfMsg(
+					'tweetanew-editdefault',
 					array( $article->getTitle()->getText(), $finalurl )
 				);
 				$tweet_text .= $tweet_body;
@@ -197,6 +223,7 @@ class TweetANew {
 				$finalurl
 			);
 		}
+
 		return true;
 	}
 
@@ -204,11 +231,12 @@ class TweetANew {
 	 * Function shortening url via outside service or leaving for t.co service if none are enabled
 	 *
 	 * @param $longurl
+	 *
 	 * @return string
 	 */
 	public static function makeFinalUrl( $longurl ) {
 		global $wgTweetANewBitly, $wgOut, $wgTweetANewGoogl;
-		
+
 		# Check setting to enable/disable use of bitly
 		if ( $wgTweetANewBitly['Enable'] ) {
 
@@ -218,20 +246,19 @@ class TweetANew {
 				. "&apiKey=" . $wgTweetANewBitly['API'] . "&format=txt";
 
 			# Get the url from bitly
-			$response = Http::get($shortened);
-		}
-		
-		# Check setting to enable/disable use of goo.gl
+			$response = Http::get( $shortened );
+		} # Check setting to enable/disable use of goo.gl
 		elseif ( $wgTweetANewGoogl['Enable'] ) {
 
 			# Setup goo.gl
-			$url = new GoogleURL($wgTweetANewGoogl['API']);
+			$url = new GoogleURL( $wgTweetANewGoogl['API'] );
 
 			# Generate url from goo.gl
-			$response = $url->shorten($longurl);
+			$response = $url->shorten( $longurl );
 		} else {
 			$response = $longurl;
 		}
+
 		return $response;
 	}
 
@@ -241,39 +268,44 @@ class TweetANew {
 	 * @param $article Article
 	 * @param $tweet_text
 	 * @param $finalurl
+	 *
 	 * @return bool
 	 */
 	public static function makeSendTweet( $article, $tweet_text, $finalurl ) {
 		global $wgTweetANewTwitter, $wgTweetANewBlacklist, $wgLang;
 
-		if ( !in_array($article->getTitle()->getText(), $wgTweetANewBlacklist) ) {
-	        # Calculate length of tweet factoring in t.co 
- 	       if ( stripos( $finalurl, 'https:' ) !== false ) {
-	            $tweet_text_count = 140 - 23 + mb_strlen( $finalurl );
-	        } elseif ( stripos( $finalurl, 'http:' ) !== false ) {
-	            $tweet_text_count = 140 - 22 + mb_strlen( $finalurl );
+		if ( !in_array( $article->getTitle()->getText(), $wgTweetANewBlacklist ) ) {
+			# Calculate length of tweet factoring in t.co
+			if ( stripos( $finalurl, 'https:' ) !== false ) {
+				$tweet_text_count = 140 - 23 + mb_strlen( $finalurl );
+			} elseif ( stripos( $finalurl, 'http:' ) !== false ) {
+				$tweet_text_count = 140 - 22 + mb_strlen( $finalurl );
 			} else {
 				$tweet_text_count = 140;
 			}
 
 			# Check if length of tweet is beyond 140 characters and shorten if necessary
 			if ( mb_strlen( $tweet_text ) > $tweet_text_count ) {
-				$tweet_text = $wgLang->mb_substr( $tweet_text, 0, $tweet_text_count - 3 )  . '...';
+				$tweet_text = $wgLang->mb_substr( $tweet_text, 0, $tweet_text_count - 3 ) . '...';
 			}
 
 			# Make connection to Twitter
-			$tmhOAuth = new tmhOAuth( array(
-				'consumer_key' => $wgTweetANewTwitter['ConsumerKey'],
-				'consumer_secret' => $wgTweetANewTwitter['ConsumerSecret'],
-				'user_token' => $wgTweetANewTwitter['AccessToken'],
-				'user_secret' => $wgTweetANewTwitter['AccessTokenSecret'],
-			) );
+			$tmhOAuth = new tmhOAuth(
+				array(
+					'consumer_key' => $wgTweetANewTwitter['ConsumerKey'],
+					'consumer_secret' => $wgTweetANewTwitter['ConsumerSecret'],
+					'user_token' => $wgTweetANewTwitter['AccessToken'],
+					'user_secret' => $wgTweetANewTwitter['AccessTokenSecret'],
+				)
+			);
 
 			# Make tweet message
-			$tmhOAuth->request( 'POST',
+			$tmhOAuth->request(
+				'POST',
 				$tmhOAuth->url( '1.1/statuses/update' ),
 				array( 'status' => $tweet_text )
 			);
+
 			return true;
 		}
 	}
