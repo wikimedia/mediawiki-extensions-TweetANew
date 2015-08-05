@@ -235,7 +235,7 @@ class TweetANew {
 	 * @return string
 	 */
 	public static function makeFinalUrl( $longurl ) {
-		global $wgTweetANewBitly, $wgOut, $wgTweetANewGoogl;
+		global $wgTweetANewBitly, $wgTweetANewGoogl;
 
 		# Check setting to enable/disable use of bitly
 		if ( $wgTweetANewBitly['Enable'] ) {
