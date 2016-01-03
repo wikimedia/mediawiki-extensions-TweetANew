@@ -225,7 +225,7 @@ function efTweetANewEditCheckBox( &$editpage, &$checkboxes, &$tabindex ) {
 	) {
 		$attribs = array(
 			'tabindex' => ++$tabindex,
-			'accesskey' => wfMsg( 'tweetanew-accesskey' ),
+			'accesskey' => wfMessage( 'tweetanew-accesskey' )->text(),
 			'id' => 'wpTweetANewEdit',
 		);
 
@@ -233,15 +233,15 @@ function efTweetANewEditCheckBox( &$editpage, &$checkboxes, &$tabindex ) {
 		$checkboxes['twitter'] =
 			Xml::check( 'wpTweetANewEdit', $wgTweetANewEditpage['Checked'], $attribs ) .
 			"&nbsp;<label for='wpTweetANewEdit' title='" .
-			wfMsg( 'tweetanew-edittooltip' ) .
+			wfMessage( 'tweetanew-edittooltip' )->escaped() .
 			"'>" .
-			wfMsg( 'tweetanew-editaction' ) .
+			wfMessage( 'tweetanew-editaction' )->escaped() .
 			"</label>";
 	} # Check if article is new - if checkboxes are enabled and if auto-tweets of new articles are disabled
 	elseif ( $wgTweetANewEditpage['Enable'] && !$wgTweetANewTweet['New'] ) {
 		$attribs = array(
 			'tabindex' => ++$tabindex,
-			'accesskey' => wfMsg( 'tweetanew-accesskey' ),
+			'accesskey' => wfMessage( 'tweetanew-accesskey' )->text(),
 			'id' => 'wpTweetANew',
 		);
 
@@ -249,9 +249,9 @@ function efTweetANewEditCheckBox( &$editpage, &$checkboxes, &$tabindex ) {
 		$checkboxes['twitter'] =
 			Xml::check( 'wpTweetANew', $wgTweetANewEditpage['Checked'], $attribs ) .
 			"&nbsp;<label for='wpTweetANew' title='" .
-			wfMsg( 'tweetanew-newtooltip' ) .
+			wfMessage( 'tweetanew-newtooltip' )->escaped() .
 			"'>" .
-			wfMsg( 'tweetanew-newaction' ) .
+			wfMessage( 'tweetanew-newaction' )->escaped() .
 			"</label>";
 	}
 

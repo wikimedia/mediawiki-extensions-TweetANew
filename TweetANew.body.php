@@ -50,22 +50,22 @@ class TweetANew {
 				# Setup switcher using max number set by $wgTweetANewText['NewRandomMax']
 				$switcher = rand( 1, $wgTweetANewText['NewRandomMax'] );
 				# Parse random text
-				$tweet_text = wfMsg(
+				$tweet_text = wfMessage(
 					'tweetanew-new' . $switcher,
 					array( $article->getTitle()->getText(), $finalurl )
-				);
+				)->text();
 			} else {
 				# Use default tweet message format
-				$tweet_body = wfMsg(
+				$tweet_body = wfMessage(
 					'tweetanew-newdefault',
 					array( $article->getTitle()->getText(), $finalurl )
-				);
+				)->text();
 				$tweet_text = $tweet_body;
 			}
 
 			# Add author info if $wgTweetANewText['NewAuthor'] is true
 			if ( $wgTweetANewText['NewAuthor'] ) {
-				$tweet_text .= ' ' . wfMsg( 'tweetanew-authorcredit' ) . ' ' . $author;
+				$tweet_text .= ' ' . wfMessage( 'tweetanew-authorcredit' )->text() . ' ' . $author;
 			}
 
 			# Add summary if $wgTweetANewText['NewSummary'] is true and summary text is entered
@@ -181,7 +181,7 @@ class TweetANew {
 			$tweet_text = '';
 			# Add prefix indication that edit is minor if enabled by $wgTweetANewText['Minor']
 			if ( $minoredit !== 0 && $wgTweetANewText['Minor'] ) {
-				$tweet_text = wfMsg( 'tweetanew-minoredit' );
+				$tweet_text = $article->getContext()->msg( 'tweetanew-minoredit' )->text();
 				# Add a space after the indicator if $wgTweetANewText['MinorSpace'] is true
 				if ( $minoredit !== 0 && $wgTweetANewText['MinorSpace'] ) {
 					$tweet_text .= ' ';
@@ -193,22 +193,22 @@ class TweetANew {
 				# Setup switcher using max number set by $wgTweetANewText['EditRandomMax']
 				$switcher = rand( 1, $wgTweetANewText['EditRandomMax'] );
 				# Parse random text
-				$tweet_text .= wfMsg(
+				$tweet_text .= $article->getContext()->msg(
 					'tweetanew-edit' . $switcher,
 					array( $article->getTitle()->getText(), $finalurl )
-				);
+				)->text();
 			} else {
 				# Use default tweet message format
-				$tweet_body = wfMsg(
+				$tweet_body = $article->getContext()->msg(
 					'tweetanew-editdefault',
 					array( $article->getTitle()->getText(), $finalurl )
-				);
+				)->text();
 				$tweet_text .= $tweet_body;
 			}
 
 			# Add author info if $wgTweetANewText['EditAuthor'] is true
 			if ( $wgTweetANewText['EditAuthor'] ) {
-				$tweet_text .= ' ' . wfMsg( 'tweetanew-authorcredit' ) . ' ' . $author;
+				$tweet_text .= ' ' . $article->getContext()->msg( 'tweetanew-authorcredit' )->text() . ' ' . $author;
 			}
 
 			# Add summary if $wgTweetANewText['EditSummary'] is true and summary text is entered
