@@ -202,8 +202,8 @@ $wgExtensionCredits['other'][] = array(
 /**
  * Call the hooks
  */
-$wgHooks['ArticleInsertComplete'][] = 'TweetANew::TweetANewNewArticle';
-$wgHooks['ArticleSaveComplete'][] = 'TweetANew::TweetANewEditMade';
+$wgHooks['PageContentInsertComplete'][] = 'TweetANew::TweetANewNewPageContent';
+$wgHooks['PageContentSaveComplete'][] = 'TweetANew::TweetANewEditMade';
 $wgHooks['EditPageBeforeEditChecks'][] = 'efTweetANewEditCheckBox';
 
 /**

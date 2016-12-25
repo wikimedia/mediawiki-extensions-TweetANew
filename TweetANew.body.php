@@ -12,22 +12,22 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class TweetANew {
 
 	/**
-	 * Function for tweeting new articles
+	 * Function for tweeting new wiki pages
 	 *
-	 * @param $article Article
+	 * @param $wikiPage WikiPage
 	 * @param $user User
 	 * @param $summary
 	 *
 	 * @return bool
 	 */
-	public static function TweetANewNewArticle( $article, $user, $summary ) {
+	public static function TweetANewNewPageContent( $wikiPage, $user, $summary ) {
 		global $wgTweetANewTweet, $wgTweetANewText, $wgRequest;
 
 		# Check if $wgTweetANewTweet['New'] is enabled or the Tweet checkbox was selected on the edit page
 		if ( $wgRequest->getCheck( 'wpTweetANew' ) || $wgTweetANewTweet['New'] ) {
 
 			# Check if page is in content namespace or if the Tweet checkbox was selected on the edit page
-			if ( !MWNamespace::isContent( $article->getTitle()->getNamespace() )
+			if ( !MWNamespace::isContent( $wikiPage->getTitle()->getNamespace() )
 				&& !$wgRequest->getCheck( 'wpTweetANew' )
 			) {
 				return true;
@@ -35,7 +35,7 @@ class TweetANew {
 
 			# Generate final url
 			$finalurl = self::makeFinalUrl(
-				$article->getTitle()->getFullURL()
+				$wikiPage->getTitle()->getFullURL()
 			);
 
 			# Generate $author based on $wgTweetANewText['RealName']
@@ -52,13 +52,13 @@ class TweetANew {
 				# Parse random text
 				$tweet_text = wfMessage(
 					'tweetanew-new' . $switcher,
-					array( $article->getTitle()->getText(), $finalurl )
+					array( $wikiPage->getTitle()->getText(), $finalurl )
 				)->text();
 			} else {
 				# Use default tweet message format
 				$tweet_body = wfMessage(
 					'tweetanew-newdefault',
-					array( $article->getTitle()->getText(), $finalurl )
+					array( $wikiPage->getTitle()->getText(), $finalurl )
 				)->text();
 				$tweet_text = $tweet_body;
 			}
@@ -75,7 +75,7 @@ class TweetANew {
 
 			# Call to function for assembling and trimming tweet (if necessary) - then connecting and sending tweet to Twitter
 			self::makeSendTweet(
-				$article,
+				$wikiPage,
 				$tweet_text,
 				$finalurl
 			);
@@ -88,32 +88,20 @@ class TweetANew {
 	/**
 	 * Function for tweeting edited articles
 	 *
-	 * @param $article Article
+	 * @param $wikiPage WikiPage
 	 * @param $user User
-	 * @param $text string
+	 * @param $content Content
 	 * @param $summary string
-	 * @param $minoredit bool
-	 * @param $watchthis
-	 * @param $sectionanchor
-	 * @param $flags
-	 * @param $revision
-	 * @param $status
-	 * @param $baseRevId
+	 * @param $isMinor bool
 	 *
 	 * @return bool
 	 */
 	public static function TweetANewEditMade(
-		&$article,
-		&$user,
-		$text,
+		$wikiPage,
+		$user,
+		$content,
 		$summary,
-		$minoredit,
-		$watchthis,
-		$sectionanchor,
-		&$flags,
-		$revision,
-		&$status,
-		$baseRevId
+		$isMinor
 	) {
 		global $wgTweetANewTweet, $wgTweetANewText, $wgRequest;
 
@@ -123,10 +111,10 @@ class TweetANew {
 			# Unless the tweet checkbox is selected, only proceeds if page is outside content namespace
 			#   and if a minor edit, checks $wgTweetANewTweet['SkipMinor']
 			# Also prevents new articles from processing as TweetANewNewArticle function is used instead
-			if ( ( !MWNamespace::isContent( $article->getTitle()->getNamespace() )
-					|| ( $minoredit !== 0 && $wgTweetANewTweet['SkipMinor'] )
+			if ( ( !MWNamespace::isContent( $wikiPage->getTitle()->getNamespace() )
+					|| ( $isMinor !== 0 && $wgTweetANewTweet['SkipMinor'] )
 					&& !$wgRequest->getCheck( 'wpTweetANewEdit' ) )
-				|| $article->getTitle()->estimateRevisionCount() == 1
+				|| $wikiPage->getTitle()->estimateRevisionCount() == 1
 			) {
 				return true;
 			}
@@ -137,7 +125,7 @@ class TweetANew {
 			$res = $dbr->select(
 				'revision',
 				array( 'rev_timestamp' ),
-				array( 'rev_page' => $article->getId() ),
+				array( 'rev_page' => $wikiPage->getId() ),
 				__METHOD__,
 				array( 'ORDER BY' => 'rev_id DESC', 'LIMIT' => '2' )
 			);
@@ -168,7 +156,7 @@ class TweetANew {
 
 			# Generate final url
 			$finalurl = self::makeFinalUrl(
-				$article->getTitle()->getFullURL()
+				$wikiPage->getTitle()->getFullURL()
 			);
 
 			# Generate $author based on $wgTweetANewText['RealName']
@@ -180,10 +168,10 @@ class TweetANew {
 
 			$tweet_text = '';
 			# Add prefix indication that edit is minor if enabled by $wgTweetANewText['Minor']
-			if ( $minoredit !== 0 && $wgTweetANewText['Minor'] ) {
-				$tweet_text = $article->getContext()->msg( 'tweetanew-minoredit' )->text();
+			if ( $isMinor !== 0 && $wgTweetANewText['Minor'] ) {
+				$tweet_text = RequestContext::getMain()->msg( 'tweetanew-minoredit' )->text();
 				# Add a space after the indicator if $wgTweetANewText['MinorSpace'] is true
-				if ( $minoredit !== 0 && $wgTweetANewText['MinorSpace'] ) {
+				if ( $isMinor !== 0 && $wgTweetANewText['MinorSpace'] ) {
 					$tweet_text .= ' ';
 				}
 			}
@@ -193,22 +181,22 @@ class TweetANew {
 				# Setup switcher using max number set by $wgTweetANewText['EditRandomMax']
 				$switcher = rand( 1, $wgTweetANewText['EditRandomMax'] );
 				# Parse random text
-				$tweet_text .= $article->getContext()->msg(
+				$tweet_text .= RequestContext::getMain()->msg(
 					'tweetanew-edit' . $switcher,
-					array( $article->getTitle()->getText(), $finalurl )
+					array( $wikiPage->getTitle()->getText(), $finalurl )
 				)->text();
 			} else {
 				# Use default tweet message format
-				$tweet_body = $article->getContext()->msg(
+				$tweet_body = RequestContext::getMain()->msg(
 					'tweetanew-editdefault',
-					array( $article->getTitle()->getText(), $finalurl )
+					array( $wikiPage->getTitle()->getText(), $finalurl )
 				)->text();
 				$tweet_text .= $tweet_body;
 			}
 
 			# Add author info if $wgTweetANewText['EditAuthor'] is true
 			if ( $wgTweetANewText['EditAuthor'] ) {
-				$tweet_text .= ' ' . $article->getContext()->msg( 'tweetanew-authorcredit' )->text() . ' ' . $author;
+				$tweet_text .= ' ' . RequestContext::getMain()->msg( 'tweetanew-authorcredit' )->text() . ' ' . $author;
 			}
 
 			# Add summary if $wgTweetANewText['EditSummary'] is true and summary text is entered
@@ -218,7 +206,7 @@ class TweetANew {
 
 			# Call to function for preparing and sending tweet
 			self::makeSendTweet(
-				$article,
+				$wikiPage,
 				$tweet_text,
 				$finalurl
 			);
@@ -265,16 +253,16 @@ class TweetANew {
 	/**
 	 * Function for connecting to Twitter, preparing and then sending tweet
 	 *
-	 * @param $article Article
+	 * @param $wikiPage WikiPage
 	 * @param $tweet_text
 	 * @param $finalurl
 	 *
 	 * @return bool
 	 */
-	public static function makeSendTweet( $article, $tweet_text, $finalurl ) {
+	public static function makeSendTweet( $wikiPage, $tweet_text, $finalurl ) {
 		global $wgTweetANewTwitter, $wgTweetANewBlacklist, $wgLang;
 
-		if ( !in_array( $article->getTitle()->getText(), $wgTweetANewBlacklist ) ) {
+		if ( !in_array( $wikiPage->getTitle()->getText(), $wgTweetANewBlacklist ) ) {
 			# Calculate length of tweet factoring in t.co
 			if ( stripos( $finalurl, 'https:' ) !== false ) {
 				$tweet_text_count = 140 - 23 + mb_strlen( $finalurl );
