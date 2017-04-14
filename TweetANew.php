@@ -204,8 +204,11 @@ $wgExtensionCredits['other'][] = array(
  */
 $wgHooks['PageContentInsertComplete'][] = 'TweetANew::TweetANewNewPageContent';
 $wgHooks['PageContentSaveComplete'][] = 'TweetANew::TweetANewEditMade';
-$wgHooks['EditPageBeforeEditChecks'][] = 'efTweetANewEditCheckBox';
-
+if ( version_compare( $wgVersion, '1.29', '<' ) ) {
+	$wgHooks['EditPageBeforeEditChecks'][] = 'efTweetANewEditCheckBox';
+} else {
+	$wgHooks['EditPageGetCheckboxesDefinition'][] = 'efTweetANewEditCheckBox';
+}
 /**
  * Function for tweeting about new or edited articles when auto-tweet if disabled
  *
@@ -215,45 +218,55 @@ $wgHooks['EditPageBeforeEditChecks'][] = 'efTweetANewEditCheckBox';
  *
  * @return bool
  */
-function efTweetANewEditCheckBox( &$editpage, &$checkboxes, &$tabindex ) {
+function efTweetANewEditCheckBox( $editpage, &$checkboxes, &$tabindex = null ) {
 	global $wgTweetANewEditpage, $wgTweetANewTweet;
 
+
+	$options = array(
+		'label-message' => null,
+		'id' => null,
+		'default' => $wgTweetANewEditpage['Checked'],
+		'title-message' => null,
+		'legacy-name' => 'twitter',
+	);
 	# Check if article is new - if checkboxes are enabled and if auto-tweets of edits are disabled
 	if ( $editpage->mTitle->exists() &&
 		$wgTweetANewEditpage['Enable'] &&
 		!$wgTweetANewTweet['Edit']
 	) {
 		$attribs = array(
-			'tabindex' => ++$tabindex,
-			'accesskey' => wfMessage( 'tweetanew-accesskey' )->text(),
-			'id' => 'wpTweetANewEdit',
+			'accesskey' => wfMessage( 'tweetanew-accesskey' )->text()
 		);
-
-		# Prepare checkbox
-		$checkboxes['twitter'] =
-			Xml::check( 'wpTweetANewEdit', $wgTweetANewEditpage['Checked'], $attribs ) .
-			"&nbsp;<label for='wpTweetANewEdit' title='" .
-			wfMessage( 'tweetanew-edittooltip' )->escaped() .
-			"'>" .
-			wfMessage( 'tweetanew-editaction' )->escaped() .
-			"</label>";
+		$options['title-message'] = 'tweetanew-edittooltip';
+		$options['label-message'] = 'tweetanew-editaction';
+		$options['id'] = 'wpTweetANewEdit';
+		$name = 'wpTweetANewEdit';
 	} # Check if article is new - if checkboxes are enabled and if auto-tweets of new articles are disabled
 	elseif ( $wgTweetANewEditpage['Enable'] && !$wgTweetANewTweet['New'] ) {
 		$attribs = array(
-			'tabindex' => ++$tabindex,
-			'accesskey' => wfMessage( 'tweetanew-accesskey' )->text(),
-			'id' => 'wpTweetANew',
+			'accesskey' => wfMessage( 'tweetanew-accesskey' )->text()
 		);
 
-		# Prepare checkbox
-		$checkboxes['twitter'] =
-			Xml::check( 'wpTweetANew', $wgTweetANewEditpage['Checked'], $attribs ) .
-			"&nbsp;<label for='wpTweetANew' title='" .
-			wfMessage( 'tweetanew-newtooltip' )->escaped() .
-			"'>" .
-			wfMessage( 'tweetanew-newaction' )->escaped() .
-			"</label>";
+		$options['title-message'] = 'tweetanew-newtooltip';
+		$options['label-message'] = 'tweetanew-newaction';
+		$options['id'] = 'wpTweetANew';
+		$name = 'wpTweetANew';
+	} else {
+		return true;
 	}
 
+	if ( $tabindex === null ) {
+		$checkboxes[$name] = $options;
+	} else {
+		$checkbox = Xml::check(
+			$name,
+			$options['default'],
+			$attribs + [ 'tabindex' => ++$tabindex ]
+		);
+		$attribs = [ 'for' => $options['id'] ];
+		$attribs['title'] = wfMessage( $options['title-message']  )->escaped();
+		$label = Xml::tags( 'label', $attribs, wfMessage( $options['label-message'] )->escaped() );
+		$checkboxes[ $options['legacy-name'] ] = $checkbox . '&#160;' . $label;
+	}
 	return true;
 }
