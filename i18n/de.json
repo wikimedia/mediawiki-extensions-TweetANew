@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Kghbln",
-			"Umherirrender"
+			"Umherirrender",
+			"Metalhead64"
 		]
 	},
-	"tweetanew-desc": "Ermöglicht das automatisierte oder manuell ausgelöste Tweeten von neuen oder gerade bearbeiteten Seiten",
+	"tweetanew-desc": "Ermöglicht das Tweeten, wenn eine Seite erstellt oder bearbeitet wird",
 	"tweetanew-newaction": "Diese neue Seite tweeten",
 	"tweetanew-newtooltip": "Informationen zu dieser neuen Seite an Twitter senden",
 	"tweetanew-editaction": "Diese Bearbeitung tweeten",

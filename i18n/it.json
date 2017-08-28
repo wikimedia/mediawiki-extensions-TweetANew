@@ -4,7 +4,7 @@
 			"Beta16"
 		]
 	},
-	"tweetanew-desc": "Twitta quando una pagina viene creata o modificata. In base alle preferenze impostate per l'intero wiki, è possibile farlo automaticamente o dal modulo di modifica.",
+	"tweetanew-desc": "Twitta quando una pagina viene creata o modificata",
 	"tweetanew-newaction": "Twitta di questa nuova pagina",
 	"tweetanew-newtooltip": "Invia informazioni riguardo questa nuova pagina su Twitter",
 	"tweetanew-editaction": "Twitta di questa modifica",

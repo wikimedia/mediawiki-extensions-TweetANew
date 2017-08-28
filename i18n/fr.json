@@ -3,10 +3,11 @@
 		"authors": [
 			"Crochet.david",
 			"Gomoko",
-			"McDutchie"
+			"McDutchie",
+			"Verdy p"
 		]
 	},
-	"tweetanew-desc": "Tweeter lorsqu'une page est créée ou modifiée. Selon les préférences définis pour le wiki complet, soit automatiquement, soit depuis la page de modification.",
+	"tweetanew-desc": "Tweeter lorsqu’une page est créée ou modifiée",
 	"tweetanew-newaction": "Tweeter à propos de cette nouvelle page",
 	"tweetanew-newtooltip": "Envoyer des informations sur cette nouvelle page sur Twitter",
 	"tweetanew-editaction": "Tweeter à propos de cette modification",

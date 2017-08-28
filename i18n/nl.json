@@ -3,10 +3,11 @@
 		"authors": [
 			"Inholland",
 			"SPQRobin",
-			"Siebrand"
+			"Siebrand",
+			"MarcoSwart"
 		]
 	},
-	"tweetanew-desc": "Verstuurt tweets wanneer een pagina wordt aangemaakt of bewerkt. Afhankelijk van de voorkeuren die zijn ingesteld voor de wiki, gebeurt dit automatisch of vanaf de bewerkingspagina.",
+	"tweetanew-desc": "Verstuurt tweets wanneer een pagina wordt aangemaakt of bewerkt.",
 	"tweetanew-newaction": "Tweeten over deze nieuwe pagina",
 	"tweetanew-newtooltip": "Gegevens over deze nieuwe pagina naar Twitter verzenden",
 	"tweetanew-editaction": "Tweeten over deze bewerking",
