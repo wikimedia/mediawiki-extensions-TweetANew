@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Armando-Martin"
+			"Armando-Martin",
+			"Fitoschido"
 		]
 	},
-	"tweetanew-desc": "Publíquelo en Twitter cuando se cree o edite una página. Dependiendo de las preferencias que establezca para todo el wiki, ya sea automáticamente o desde la página de edición.",
+	"tweetanew-desc": "Emitir tuits al crear o editar páginas",
 	"tweetanew-newaction": "Publique en Twitter sobre esta página nueva",
 	"tweetanew-newtooltip": "Enviar información acerca de esta nueva página a Twitter",
 	"tweetanew-editaction": "Publicar en Twitter acerca de esta edición",
