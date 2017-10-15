@@ -5,7 +5,7 @@
 			"Hamilton Abreu"
 		]
 	},
-	"tweetanew-desc": "Publica um tweet quando uma página é criada ou editada. Dependendo das preferências globais da wiki, fá-lo automaticamente ou a partir da página de edição.",
+	"tweetanew-desc": "Publica um tweet quando uma página é criada ou editada",
 	"tweetanew-newaction": "Criar um tweet sobre esta página nova",
 	"tweetanew-newtooltip": "Enviar informação sobre esta página nova para o Twitter",
 	"tweetanew-editaction": "Criar um tweet sobre esta edição",
