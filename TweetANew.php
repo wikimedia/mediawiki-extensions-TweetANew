@@ -26,7 +26,7 @@
  *    McDutchie, ChrisPtDe, Michawiki, Beta16, David1010, Priviet, Robby, Siebrand, Manuae, Borichètm, Dragonòt, SandroHc,
  *    Ahmed-Najib-Biabani-Ibrahimkhel, Stelistcristi, Joetaras, Kalan, පසිඳු කාවින්ද, Rancher, WikiPhoenix, Shanmugamp7, Veeven,
  *    AnakngAraw, Emperyan, Bilalokms, Ата, Hzy980512, Xiaomingyan, Yfdyh000, Justincheng12345,
- *    and others mentioned in TweetANew.i18n.php for translation work
+ *    and others mentioned in i18n folder for translation work
  *
  */
 
@@ -184,7 +184,6 @@ $wgAutoloadClasses['tmhOAuth'] = $dir . 'lib/tmhOAuth.php';
 $wgAutoloadClasses['tmhUtilities'] = $dir . 'lib/tmhUtilities.php';
 $wgAutoloadClasses['GoogleURL'] = $dir . 'lib/GoogleURL.php';
 $wgMessagesDirs['TweetANew'] = $dir . 'i18n';
-$wgExtensionMessagesFiles['TweetANew'] = $dir . 'TweetANew.i18n.php';
 
 /**
  * Credits
