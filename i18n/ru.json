@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Kalan",
-			"Okras"
+			"Okras",
+			"Wirbel78"
 		]
 	},
-	"tweetanew-desc": "Твитит, когда создаются или редактируются страницы.",
+	"tweetanew-desc": "Твитит, когда создаются или редактируются страницы",
 	"tweetanew-newaction": "Твитнуть об этой новой странице",
 	"tweetanew-newtooltip": "Отправить информацию о создании этой страницы в Twitter",
 	"tweetanew-editaction": "Твитнуть об этой правке",
