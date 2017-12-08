@@ -97,7 +97,7 @@ class TweetANew {
 	 * @return bool
 	 */
 	public static function TweetANewEditMade(
-		$wikiPage,
+		WikiPage $wikiPage,
 		$user,
 		$content,
 		$summary,
