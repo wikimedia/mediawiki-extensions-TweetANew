@@ -25,7 +25,6 @@ class TweetANew {
 
 		# Check if $wgTweetANewTweet['New'] is enabled or the Tweet checkbox was selected on the edit page
 		if ( $wgRequest->getCheck( 'wpTweetANew' ) || $wgTweetANewTweet['New'] ) {
-
 			# Check if page is in content namespace or if the Tweet checkbox was selected on the edit page
 			if ( !MWNamespace::isContent( $wikiPage->getTitle()->getNamespace() )
 				&& !$wgRequest->getCheck( 'wpTweetANew' )
@@ -107,7 +106,6 @@ class TweetANew {
 
 		# Check if $wgTweetANewTweet['Edit'] is enabled or the Tweet checkbox was selected on the edit page
 		if ( $wgRequest->getCheck( 'wpTweetANewEdit' ) || $wgTweetANewTweet['Edit'] ) {
-
 			# Unless the tweet checkbox is selected, only proceeds if page is outside content namespace
 			#   and if a minor edit, checks $wgTweetANewTweet['SkipMinor']
 			# Also prevents new articles from processing as TweetANewNewArticle function is used instead
@@ -121,7 +119,7 @@ class TweetANew {
 
 			# Determine the time and date of last modification - exit if newer than $wgTweetANewTweet['LessMinutesOld']
 			# ToDo - there must be a cleaner way of doing this
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 			$res = $dbr->select(
 				'revision',
 				array( 'rev_timestamp' ),
@@ -227,7 +225,6 @@ class TweetANew {
 
 		# Check setting to enable/disable use of bitly
 		if ( $wgTweetANewBitly['Enable'] ) {
-
 			# Generate url for bitly
 			$shortened = "https://api-ssl.bitly.com/v3/shorten?longUrl="
 				. urlencode( $longurl ) . "&login=" . $wgTweetANewBitly['Login']
@@ -237,7 +234,6 @@ class TweetANew {
 			$response = Http::get( $shortened );
 		} # Check setting to enable/disable use of goo.gl
 		elseif ( $wgTweetANewGoogl['Enable'] ) {
-
 			# Setup goo.gl
 			$url = new GoogleURL( $wgTweetANewGoogl['API'] );
 

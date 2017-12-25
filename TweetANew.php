@@ -220,7 +220,6 @@ if ( version_compare( $wgVersion, '1.29', '<' ) ) {
 function efTweetANewEditCheckBox( $editpage, &$checkboxes, &$tabindex = null ) {
 	global $wgTweetANewEditpage, $wgTweetANewTweet;
 
-
 	$options = array(
 		'label-message' => null,
 		'id' => null,
