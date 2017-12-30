@@ -125,14 +125,14 @@ if ( !defined( 'MEDIAWIKI' ) ) {
  *
  */
 
-$wgTweetANewTweet = array(
+$wgTweetANewTweet = [
 	'New' => true,
 	'Edit' => true,
 	'LessMinutesOld' => 5,
 	'SkipMinor' => true,
-);
+];
 
-$wgTweetANewText = array(
+$wgTweetANewText = [
 	// Only applies if $wgTweetANewTweet['SkipMinor'] = false
 	'Minor' => false,
 	// Only applies if $wgTweetANewTweet['SkipMinor'] = false and $wgTweetANewTweet['Minor'] = true
@@ -146,34 +146,34 @@ $wgTweetANewText = array(
 	'EditAuthor' => false,
 	'EditSummary' => false,
 	'RealName' => false,
-);
+];
 
-$wgTweetANewEditpage = array(
+$wgTweetANewEditpage = [
 	'Enable' => false,
 	// Only applies if $wgTweetANewTweet['New'] = false or $wgTweetANewTweet['Edit'] = false
 	'Checked' => false,
 	// Only applies if $wgTweetANewEditpage['Enable'] = true
-);
+];
 
-$wgTweetANewBlacklist = array( '', );
+$wgTweetANewBlacklist = [ '', ];
 
-$wgTweetANewTwitter = array(
+$wgTweetANewTwitter = [
 	'ConsumerKey' => '',
 	'ConsumerSecret' => '',
 	'AccessToken' => '',
 	'AccessTokenSecret' => '',
-);
+];
 
-$wgTweetANewBitly = array(
+$wgTweetANewBitly = [
 	'Enable' => false,
 	'Login' => '', // Signup at: http://bitly.com/a/sign_up
 	'API' => '', // Find your API key at: http://bitly.com/a/your_api_key
-);
+];
 
-$wgTweetANewGoogl = array(
+$wgTweetANewGoogl = [
 	'Enable' => false,
 	'API' => '', // Enable this API and get API key from : http://code.google.com/apis/console/
-);
+];
 
 /**
  * Class and localisation
@@ -188,7 +188,7 @@ $wgMessagesDirs['TweetANew'] = $dir . 'i18n';
 /**
  * Credits
  */
-$wgExtensionCredits['other'][] = array(
+$wgExtensionCredits['other'][] = [
 	'path' => __FILE__,
 	'name' => 'TweetANew',
 	'version' => '1.1.0',
@@ -196,7 +196,7 @@ $wgExtensionCredits['other'][] = array(
 						[https://www.mediawiki.org/wiki/User:Joa_ds Joachim De Schrijver], Andrew Fitzgerald, Wendell Gaudencio, and Rohit Keshwani',
 	'descriptionmsg' => 'tweetanew-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:TweetANew',
-);
+];
 
 /**
  * Call the hooks
@@ -220,30 +220,30 @@ if ( version_compare( $wgVersion, '1.29', '<' ) ) {
 function efTweetANewEditCheckBox( $editpage, &$checkboxes, &$tabindex = null ) {
 	global $wgTweetANewEditpage, $wgTweetANewTweet;
 
-	$options = array(
+	$options = [
 		'label-message' => null,
 		'id' => null,
 		'default' => $wgTweetANewEditpage['Checked'],
 		'title-message' => null,
 		'legacy-name' => 'twitter',
-	);
+	];
 	# Check if article is new - if checkboxes are enabled and if auto-tweets of edits are disabled
 	if ( $editpage->mTitle->exists() &&
 		$wgTweetANewEditpage['Enable'] &&
 		!$wgTweetANewTweet['Edit']
 	) {
-		$attribs = array(
+		$attribs = [
 			'accesskey' => wfMessage( 'tweetanew-accesskey' )->text()
-		);
+		];
 		$options['title-message'] = 'tweetanew-edittooltip';
 		$options['label-message'] = 'tweetanew-editaction';
 		$options['id'] = 'wpTweetANewEdit';
 		$name = 'wpTweetANewEdit';
-	} # Check if article is new - if checkboxes are enabled and if auto-tweets of new articles are disabled
-	elseif ( $wgTweetANewEditpage['Enable'] && !$wgTweetANewTweet['New'] ) {
-		$attribs = array(
+	} elseif ( $wgTweetANewEditpage['Enable'] && !$wgTweetANewTweet['New'] ) {
+		# Check if article is new - if checkboxes are enabled and if auto-tweets of new articles are disabled
+		$attribs = [
 			'accesskey' => wfMessage( 'tweetanew-accesskey' )->text()
-		);
+		];
 
 		$options['title-message'] = 'tweetanew-newtooltip';
 		$options['label-message'] = 'tweetanew-newaction';
@@ -262,7 +262,7 @@ function efTweetANewEditCheckBox( $editpage, &$checkboxes, &$tabindex = null ) {
 			$attribs + [ 'tabindex' => ++$tabindex ]
 		);
 		$attribs = [ 'for' => $options['id'] ];
-		$attribs['title'] = wfMessage( $options['title-message']  )->escaped();
+		$attribs['title'] = wfMessage( $options['title-message'] )->escaped();
 		$label = Xml::tags( 'label', $attribs, wfMessage( $options['label-message'] )->escaped() );
 		$checkboxes[ $options['legacy-name'] ] = $checkbox . '&#160;' . $label;
 	}

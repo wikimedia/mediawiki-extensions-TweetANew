@@ -51,13 +51,13 @@ class TweetANew {
 				# Parse random text
 				$tweet_text = wfMessage(
 					'tweetanew-new' . $switcher,
-					array( $wikiPage->getTitle()->getText(), $finalurl )
+					[ $wikiPage->getTitle()->getText(), $finalurl ]
 				)->text();
 			} else {
 				# Use default tweet message format
 				$tweet_body = wfMessage(
 					'tweetanew-newdefault',
-					array( $wikiPage->getTitle()->getText(), $finalurl )
+					[ $wikiPage->getTitle()->getText(), $finalurl ]
 				)->text();
 				$tweet_text = $tweet_body;
 			}
@@ -122,12 +122,12 @@ class TweetANew {
 			$dbr = wfGetDB( DB_REPLICA );
 			$res = $dbr->select(
 				'revision',
-				array( 'rev_timestamp' ),
-				array( 'rev_page' => $wikiPage->getId() ),
+				[ 'rev_timestamp' ],
+				[ 'rev_page' => $wikiPage->getId() ],
 				__METHOD__,
-				array( 'ORDER BY' => 'rev_id DESC', 'LIMIT' => '2' )
+				[ 'ORDER BY' => 'rev_id DESC', 'LIMIT' => '2' ]
 			);
-			$edittime = array();
+			$edittime = [];
 			foreach ( $res as $row ) {
 				$edittime[] = $row->rev_timestamp;
 			}
@@ -181,13 +181,13 @@ class TweetANew {
 				# Parse random text
 				$tweet_text .= RequestContext::getMain()->msg(
 					'tweetanew-edit' . $switcher,
-					array( $wikiPage->getTitle()->getText(), $finalurl )
+					[ $wikiPage->getTitle()->getText(), $finalurl ]
 				)->text();
 			} else {
 				# Use default tweet message format
 				$tweet_body = RequestContext::getMain()->msg(
 					'tweetanew-editdefault',
-					array( $wikiPage->getTitle()->getText(), $finalurl )
+					[ $wikiPage->getTitle()->getText(), $finalurl ]
 				)->text();
 				$tweet_text .= $tweet_body;
 			}
@@ -232,8 +232,8 @@ class TweetANew {
 
 			# Get the url from bitly
 			$response = Http::get( $shortened );
-		} # Check setting to enable/disable use of goo.gl
-		elseif ( $wgTweetANewGoogl['Enable'] ) {
+		} elseif ( $wgTweetANewGoogl['Enable'] ) {
+			# Check setting to enable/disable use of goo.gl
 			# Setup goo.gl
 			$url = new GoogleURL( $wgTweetANewGoogl['API'] );
 
@@ -275,19 +275,19 @@ class TweetANew {
 
 			# Make connection to Twitter
 			$tmhOAuth = new tmhOAuth(
-				array(
+				[
 					'consumer_key' => $wgTweetANewTwitter['ConsumerKey'],
 					'consumer_secret' => $wgTweetANewTwitter['ConsumerSecret'],
 					'user_token' => $wgTweetANewTwitter['AccessToken'],
 					'user_secret' => $wgTweetANewTwitter['AccessTokenSecret'],
-				)
+				]
 			);
 
 			# Make tweet message
 			$tmhOAuth->request(
 				'POST',
 				$tmhOAuth->url( '1.1/statuses/update' ),
-				array( 'status' => $tweet_text )
+				[ 'status' => $tweet_text ]
 			);
 
 			return true;
