@@ -14,9 +14,9 @@ class TweetANew {
 	/**
 	 * Function for tweeting new wiki pages
 	 *
-	 * @param $wikiPage WikiPage
-	 * @param $user User
-	 * @param $summary
+	 * @param WikiPage $wikiPage
+	 * @param User $user
+	 * @param string $summary
 	 *
 	 * @return bool
 	 */
@@ -87,11 +87,11 @@ class TweetANew {
 	/**
 	 * Function for tweeting edited articles
 	 *
-	 * @param $wikiPage WikiPage
-	 * @param $user User
-	 * @param $content Content
-	 * @param $summary string
-	 * @param $isMinor bool
+	 * @param WikiPage $wikiPage
+	 * @param User $user
+	 * @param Content $content
+	 * @param string $summary
+	 * @param bool $isMinor
 	 *
 	 * @return bool
 	 */
@@ -216,7 +216,7 @@ class TweetANew {
 	/**
 	 * Function shortening url via outside service or leaving for t.co service if none are enabled
 	 *
-	 * @param $longurl
+	 * @param string $longurl
 	 *
 	 * @return string
 	 */
@@ -249,9 +249,9 @@ class TweetANew {
 	/**
 	 * Function for connecting to Twitter, preparing and then sending tweet
 	 *
-	 * @param $wikiPage WikiPage
-	 * @param $tweet_text
-	 * @param $finalurl
+	 * @param WikiPage $wikiPage
+	 * @param string $tweet_text
+	 * @param string $finalurl
 	 *
 	 * @return bool
 	 */

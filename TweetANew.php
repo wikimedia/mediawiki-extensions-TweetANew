@@ -211,9 +211,9 @@ if ( version_compare( $wgVersion, '1.29', '<' ) ) {
 /**
  * Function for tweeting about new or edited articles when auto-tweet if disabled
  *
- * @param $editpage
- * @param $checkboxes
- * @param $tabindex
+ * @param EditPage $editpage
+ * @param array &$checkboxes
+ * @param null|int &$tabindex
  *
  * @return bool
  */
