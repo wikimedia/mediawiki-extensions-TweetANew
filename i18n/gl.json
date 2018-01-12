@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Toliño"
+			"Toliño",
+			"Athena in Wonderland"
 		]
 	},
-	"tweetanew-desc": "Fai un chío cando se crea ou edita unha páxina. Dependendo das preferencias definidas no wiki realízase automaticamene ou desde a páxina de edición.",
+	"tweetanew-desc": "Fai un chío cando se crea ou edita unha páxina.",
 	"tweetanew-newaction": "Facer un chío sobre esta páxina nova",
 	"tweetanew-newtooltip": "Enviar información sobre esta páxina nova ao Twitter",
 	"tweetanew-editaction": "Facer un chío sobre esta edición",
