@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Rancher"
+			"Rancher",
+			"BadDog"
 		]
 	},
 	"tweetanew-minoredit": "м",
-	"tweetanew-authorcredit": "од"
+	"tweetanew-authorcredit": "од",
+	"tweetanew-newdefault": "НОВА СТРАНИЦА: $1 — $2"
 }
