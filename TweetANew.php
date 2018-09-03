@@ -262,7 +262,7 @@ function efTweetANewEditCheckBox( $editpage, &$checkboxes, &$tabindex = null ) {
 			$attribs + [ 'tabindex' => ++$tabindex ]
 		);
 		$attribs = [ 'for' => $options['id'] ];
-		$attribs['title'] = wfMessage( $options['title-message'] )->escaped();
+		$attribs['title'] = wfMessage( $options['title-message'] )->text();
 		$label = Xml::tags( 'label', $attribs, wfMessage( $options['label-message'] )->escaped() );
 		$checkboxes[ $options['legacy-name'] ] = $checkbox . '&#160;' . $label;
 	}
