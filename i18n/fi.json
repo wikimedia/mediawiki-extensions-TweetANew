@@ -1,15 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Silvonen"
+			"Silvonen",
+			"Pyscowicz"
 		]
 	},
-	"tweetanew-desc": "Twiittaa sivun luomisesta tai muokkaamisesta. Tämä tapahtuu koko wikin asetusten mukaan joko automaattisesti tai muokkaussivulta.",
+	"tweetanew-desc": "Twiittaa sivun luomisesta tai muokkaamisesta.",
 	"tweetanew-newaction": "Twiittaa tästä uudesta sivusta",
 	"tweetanew-newtooltip": "Tiedota tästä uudesta sivusta Twitterissä",
 	"tweetanew-editaction": "Twiittaa tästä muokkauksesta",
 	"tweetanew-edittooltip": "Tiedota tästä muokkauksesta Twitterissä",
 	"tweetanew-minoredit": "p",
+	"tweetanew-authorcredit": "käyttäjältä",
 	"tweetanew-newdefault": "UUSI SIVU: $1 – $2",
 	"tweetanew-editdefault": "PÄIVITETTY SIVU: $1 – $2"
 }
