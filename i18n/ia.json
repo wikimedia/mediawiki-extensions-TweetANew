@@ -4,7 +4,7 @@
 			"McDutchie"
 		]
 	},
-	"tweetanew-desc": "Invia un \"tweet\" quando un pagina es create o modificate. Dependente del preferentias definite pro le wiki integre, isto es facite o automaticamente, o ab le pagina de modification.",
+	"tweetanew-desc": "Invia un \"tweet\" quando un pagina es create o modificate",
 	"tweetanew-newaction": "Inviar un \"tweet\" super iste nove pagina",
 	"tweetanew-newtooltip": "Inviar information super iste nove pagina a Twitter",
 	"tweetanew-editaction": "Inviar un \"tweet\" super iste modification",
