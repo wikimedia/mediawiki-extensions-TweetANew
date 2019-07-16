@@ -208,6 +208,7 @@ if ( version_compare( $wgVersion, '1.29', '<' ) ) {
 } else {
 	$wgHooks['EditPageGetCheckboxesDefinition'][] = 'efTweetANewEditCheckBox';
 }
+
 /**
  * Function for tweeting about new or edited articles when auto-tweet if disabled
  *
