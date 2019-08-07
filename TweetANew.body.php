@@ -1,7 +1,5 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) {
-	die();
-}
+
 /**
  * Class file for the TweetANew extension
  *
