@@ -2,9 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Inholland",
+			"MarcoSwart",
 			"SPQRobin",
-			"Siebrand",
-			"MarcoSwart"
+			"Siebrand"
 		]
 	},
 	"tweetanew-desc": "Verstuurt tweets wanneer een pagina wordt aangemaakt of bewerkt.",

@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"SandroHc",
-			"Hamilton Abreu"
+			"Hamilton Abreu",
+			"SandroHc"
 		]
 	},
 	"tweetanew-desc": "Publica um tweet quando uma página é criada ou editada",
