@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eburcat"
+			"Eburcat",
+			"Steeve815"
 		]
 	},
-	"tweetanew-desc": "מצייץ כאשר דף נוצר או נערך. בהתאם להגדרות של הוויקי כולו, מתבצע אוטומטית או מדף העריכה.",
+	"tweetanew-desc": "מצייץ כאשר דף נוצר או נערך.",
 	"tweetanew-newaction": "צייץ אודות דף חדש זה",
 	"tweetanew-newtooltip": "שלח מידע אודות דף חדש זה לטוויטר",
 	"tweetanew-editaction": "צייץ אודות עריכה זו",
