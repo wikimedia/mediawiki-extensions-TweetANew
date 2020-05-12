@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Class file for the TweetANew extension
  *
@@ -10,15 +9,37 @@
 class TweetANew {
 
 	/**
+	 * Respond to the parser hook call to invoke the 'tweetanew' magic word
+	 * @param Parser $parser
+	 */
+	public static function onParserFirstCallInit( Parser $parser ) {
+		$parser->setFunctionHook( 'tweetanew', [ self::class, 'doParserFunction' ] );
+	}
+
+	/**
+	 * Add properties to the page based on the parser function details.
+	 *
+	 * @param Parser $parser
+	 * @param string $twitter
+	 *
+	 * @return string
+	 */
+	public static function doParserFunction( Parser $parser, $twitter = '' ) {
+		$parser->getOutput()->setExtensionData( 'tweetanew:twitter', $twitter );
+		return '';
+	}
+
+	/**
 	 * Function for tweeting new wiki pages
 	 *
 	 * @param WikiPage $wikiPage
 	 * @param User $user
+	 * @param Content $content
 	 * @param string $summary
 	 *
 	 * @return bool
 	 */
-	public static function TweetANewNewPageContent( $wikiPage, $user, $summary ) {
+	public static function TweetANewNewPageContent( $wikiPage, $user, $content, $summary ) {
 		global $wgTweetANewTweet, $wgTweetANewText, $wgRequest;
 
 		# Check if $wgTweetANewTweet['New'] is enabled or the Tweet checkbox was selected on the edit page
@@ -26,6 +47,7 @@ class TweetANew {
 			# Check if page is in content namespace or if the Tweet checkbox was selected on the edit page
 			if ( !MWNamespace::isContent( $wikiPage->getTitle()->getNamespace() )
 				&& !$wgRequest->getCheck( 'wpTweetANew' )
+				|| !self::isTweetANewAllowed( $wikiPage, $user )
 			) {
 				return true;
 			}
@@ -42,6 +64,14 @@ class TweetANew {
 				$author = $user->getName();
 			}
 
+			# Use metadata from template for page title
+			$twitter = $wikiPage->getParserOutput( $wikiPage->makeParserOptions( 'canonical' ) )->getExtensionData( 'tweetanew:twitter' );
+			if ( $twitter && $wgTweetANewTweet['TwitterAsTitle'] ) {
+				$pagetitle = $twitter;
+			} else {
+				$pagetitle = $wikiPage->getTitle()->getText();
+			}
+
 			# Generate a random tweet texts based if $wgTweetANewText['NewRandom'] is true
 			if ( $wgTweetANewText['NewRandom'] ) {
 				# Setup switcher using max number set by $wgTweetANewText['NewRandomMax']
@@ -49,13 +79,13 @@ class TweetANew {
 				# Parse random text
 				$tweet_text = wfMessage(
 					'tweetanew-new' . $switcher,
-					[ $wikiPage->getTitle()->getText(), $finalurl ]
+					[ $pagetitle, $finalurl, $twitter ]
 				)->text();
 			} else {
 				# Use default tweet message format
 				$tweet_body = wfMessage(
 					'tweetanew-newdefault',
-					[ $wikiPage->getTitle()->getText(), $finalurl ]
+					[ $pagetitle, $finalurl, $twitter ]
 				)->text();
 				$tweet_text = $tweet_body;
 			}
@@ -111,6 +141,7 @@ class TweetANew {
 					|| ( $isMinor !== 0 && $wgTweetANewTweet['SkipMinor'] )
 					&& !$wgRequest->getCheck( 'wpTweetANewEdit' ) )
 				|| $wikiPage->getTitle()->estimateRevisionCount() == 1
+				|| !self::isTweetANewAllowed( $wikiPage, $user )
 			) {
 				return true;
 			}
@@ -162,7 +193,19 @@ class TweetANew {
 				$author = $user->getName();
 			}
 
+			# Use metadata from template for $twitter entry
+			$twitter = $wikiPage->getParserOutput( $wikiPage->makeParserOptions( 'canonical' ) )->getExtensionData( 'tweetanew:twitter' );
+
+			# Use metadata from template or $twitter entry for page title
+			if ( $twitter && $wgTweetANewTweet['TwitterAsTitle'] ) {
+				$pagetitle = $twitter;
+			} else {
+				$pagetitle = $wikiPage->getTitle()->getText();
+			}
+
+			# Set $tweet_text entry
 			$tweet_text = '';
+
 			# Add prefix indication that edit is minor if enabled by $wgTweetANewText['Minor']
 			if ( $isMinor !== 0 && $wgTweetANewText['Minor'] ) {
 				$tweet_text = RequestContext::getMain()->msg( 'tweetanew-minoredit' )->text();
@@ -179,13 +222,13 @@ class TweetANew {
 				# Parse random text
 				$tweet_text .= RequestContext::getMain()->msg(
 					'tweetanew-edit' . $switcher,
-					[ $wikiPage->getTitle()->getText(), $finalurl ]
+					[ $pagetitle, $finalurl, $twitter ]
 				)->text();
 			} else {
 				# Use default tweet message format
 				$tweet_body = RequestContext::getMain()->msg(
 					'tweetanew-editdefault',
-					[ $wikiPage->getTitle()->getText(), $finalurl ]
+					[ $pagetitle, $finalurl, $twitter ]
 				)->text();
 				$tweet_text .= $tweet_body;
 			}
@@ -209,6 +252,22 @@ class TweetANew {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Determine if Tweet should be sent.
+	 *
+	 * @param WikiPage $wikiPage
+	 * @param User $user
+	 *
+	 * @return bool
+	 */
+	public static function isTweetANewAllowed( $wikiPage, $user ) {
+		global $wgTweetANewTweet;
+		return (
+						!$wikiPage->isRedirect() &&
+						$user->isAllowed( $wgTweetANewTweet['UserGroup'] )
+					 );
 	}
 
 	/**
@@ -254,19 +313,28 @@ class TweetANew {
 	 * @return bool
 	 */
 	public static function makeSendTweet( $wikiPage, $tweet_text, $finalurl ) {
-		global $wgTweetANewTwitter, $wgTweetANewBlacklist, $wgLang;
+		global $wgTweetANewTwitter, $wgTweetANewBlocklist, $wgTweetANewBlacklist, $wgTweetANewCatBlocklist, $wgLang;
 
-		if ( !in_array( $wikiPage->getTitle()->getText(), $wgTweetANewBlacklist ) ) {
+		# Backward compatability with old $wgTweetANewBlacklist setting
+		if ( $wgTweetANewBlacklist && !$wgTweetANewBlocklist ) {
+			$wgTweetANewBlocklist = $wgTweetANewBlacklist;
+		}
+
+		# Check if page is in either blocklists:
+		# $wgTweetANewBlocklist for pages and $wgTweetANewCatBlocklist for categories
+		if ( ( !in_array( $wikiPage->getTitle()->getText(), $wgTweetANewBlocklist ) )
+			&& ( !in_array( $wikiPage->getCategories(), $wgTweetANewCatBlocklist ) ) ) {
+
 			# Calculate length of tweet factoring in t.co
 			if ( stripos( $finalurl, 'https:' ) !== false ) {
-				$tweet_text_count = 140 - 23 + mb_strlen( $finalurl );
+				$tweet_text_count = 280 - 23 + mb_strlen( $finalurl );
 			} elseif ( stripos( $finalurl, 'http:' ) !== false ) {
-				$tweet_text_count = 140 - 22 + mb_strlen( $finalurl );
+				$tweet_text_count = 280 - 22 + mb_strlen( $finalurl );
 			} else {
-				$tweet_text_count = 140;
+				$tweet_text_count = 280;
 			}
 
-			# Check if length of tweet is beyond 140 characters and shorten if necessary
+			# Check if length of tweet is beyond 280 characters and shorten if necessary
 			if ( mb_strlen( $tweet_text ) > $tweet_text_count ) {
 				$tweet_text = $wgLang->mb_substr( $tweet_text, 0, $tweet_text_count - 3 ) . '...';
 			}
@@ -290,5 +358,67 @@ class TweetANew {
 
 			return true;
 		}
+	}
+
+	/**
+	 * Function for tweeting about new or edited articles when auto-tweet if disabled
+	 *
+	 * @param EditPage $editpage
+	 * @param array &$checkboxes
+	 * @param null|int &$tabindex
+	 *
+	 * @return bool
+	 */
+	public static function TweetANewEditCheckBox( $editpage, &$checkboxes, &$tabindex = null ) {
+		global $wgTweetANewEditpage, $wgTweetANewTweet, $wgUser;
+
+		$options = [
+			'label-message' => null,
+			'id' => null,
+			'default' => $wgTweetANewEditpage['Checked'],
+			'title-message' => null,
+			'legacy-name' => 'twitter',
+		];
+		# Check if article is new, if checkboxes are enabled, if user has permission, and if auto-tweets of edits are disabled
+		if ( $editpage->mTitle->exists() &&
+			$wgTweetANewEditpage['Enable'] &&
+			!$wgTweetANewTweet['Edit'] &&
+			$wgUser->isAllowed( $wgTweetANewTweet['UserGroup'] )
+		) {
+			$attribs = [
+				'accesskey' => wfMessage( 'tweetanew-accesskey' )->text()
+			];
+			$options['title-message'] = 'tweetanew-edittooltip';
+			$options['label-message'] = 'tweetanew-editaction';
+			$options['id'] = 'wpTweetANewEdit';
+			$name = 'wpTweetANewEdit';
+		} elseif ( $wgTweetANewEditpage['Enable'] && !$wgTweetANewTweet['New'] ) {
+			# Check if article is new - if checkboxes are enabled and if auto-tweets of new articles are disabled
+			$attribs = [
+				'accesskey' => wfMessage( 'tweetanew-accesskey' )->text()
+			];
+
+			$options['title-message'] = 'tweetanew-newtooltip';
+			$options['label-message'] = 'tweetanew-newaction';
+			$options['id'] = 'wpTweetANew';
+			$name = 'wpTweetANew';
+		} else {
+			return true;
+		}
+
+		if ( $tabindex === null ) {
+			$checkboxes[$name] = $options;
+		} else {
+			$checkbox = Xml::check(
+				$name,
+				$options['default'],
+				$attribs + [ 'tabindex' => ++$tabindex ]
+			);
+			$attribs = [ 'for' => $options['id'] ];
+			$attribs['title'] = wfMessage( $options['title-message'] )->text();
+			$label = Xml::tags( 'label', $attribs, wfMessage( $options['label-message'] )->escaped() );
+			$checkboxes[ $options['legacy-name'] ] = $checkbox . '&#160;' . $label;
+		}
+		return true;
 	}
 }

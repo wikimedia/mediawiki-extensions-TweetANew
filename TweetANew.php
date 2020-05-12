@@ -7,8 +7,8 @@
  * https://www.mediawiki.org/wiki/Extension:TweetANew
  *
  * @addtogroup Extensions
- * @author Gregory Varnum merging extensions by Joachim De Schrijver, Andrew Fitzgerald, Wendell Gaudencio, and Rohit Keshwani
- * @license GPL
+ * @author Gregory Varnum and Moriel Schottlender after merging extensions by Joachim De Schrijver, Andrew Fitzgerald, Wendell Gaudencio, and Rohit Keshwani
+ * @license GPL-2.0-or-later
  *
  * Version 1.0 and above based on merging extensions TweetANew v0.2 by Joachim De Schrijver, Wiki2twitter by Wendell Gaudencio,
  *    SendToTwitter by Rohit Keshwani and SendToTwitter2 by Rohit Keshwani, Andrew Fitzgerald.
@@ -130,6 +130,8 @@ $wgTweetANewTweet = [
 	'Edit' => true,
 	'LessMinutesOld' => 5,
 	'SkipMinor' => true,
+	'TwitterAsTitle' => false,
+	'UserGroup' => 'autoconfirmed',
 ];
 
 $wgTweetANewText = [
@@ -155,7 +157,9 @@ $wgTweetANewEditpage = [
 	// Only applies if $wgTweetANewEditpage['Enable'] = true
 ];
 
-$wgTweetANewBlacklist = [ '', ];
+$wgTweetANewBlocklist = [ '', ];
+
+$wgTweetANewCatBlocklist = [ '', ];
 
 $wgTweetANewTwitter = [
 	'ConsumerKey' => '',
@@ -175,6 +179,8 @@ $wgTweetANewGoogl = [
 	'API' => '', // Enable this API and get API key from : http://code.google.com/apis/console/
 ];
 
+$wgTweetANewBlacklist = [ '', ]; // Depreciated
+
 /**
  * Class and localisation
  */
@@ -191,11 +197,12 @@ $wgMessagesDirs['TweetANew'] = $dir . 'i18n';
 $wgExtensionCredits['other'][] = [
 	'path' => __FILE__,
 	'name' => 'TweetANew',
-	'version' => '1.1.0',
-	'author' => '[https://www.mediawiki.org/wiki/User:Varnent Gregory Varnum] after merging extensions by
+	'version' => '1.2.11052020',
+	'author' => '[https://www.mediawiki.org/wiki/User:Varnent Gregory Varnum] and [https://github.com/mooeypoo Moriel Schottlender] after merging extensions by
 						[https://www.mediawiki.org/wiki/User:Joa_ds Joachim De Schrijver], Andrew Fitzgerald, Wendell Gaudencio, and Rohit Keshwani',
 	'descriptionmsg' => 'tweetanew-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:TweetANew',
+	'license-name' => 'GPL-2.0-or-later',
 ];
 
 /**
@@ -204,68 +211,7 @@ $wgExtensionCredits['other'][] = [
 $wgHooks['PageContentInsertComplete'][] = 'TweetANew::TweetANewNewPageContent';
 $wgHooks['PageContentSaveComplete'][] = 'TweetANew::TweetANewEditMade';
 if ( version_compare( $wgVersion, '1.29', '<' ) ) {
-	$wgHooks['EditPageBeforeEditChecks'][] = 'efTweetANewEditCheckBox';
+	$wgHooks['EditPageBeforeEditChecks'][] = 'TweetANew::TweetANewEditCheckBox';
 } else {
-	$wgHooks['EditPageGetCheckboxesDefinition'][] = 'efTweetANewEditCheckBox';
-}
-
-/**
- * Function for tweeting about new or edited articles when auto-tweet if disabled
- *
- * @param EditPage $editpage
- * @param array &$checkboxes
- * @param null|int &$tabindex
- *
- * @return bool
- */
-function efTweetANewEditCheckBox( $editpage, &$checkboxes, &$tabindex = null ) {
-	global $wgTweetANewEditpage, $wgTweetANewTweet;
-
-	$options = [
-		'label-message' => null,
-		'id' => null,
-		'default' => $wgTweetANewEditpage['Checked'],
-		'title-message' => null,
-		'legacy-name' => 'twitter',
-	];
-	# Check if article is new - if checkboxes are enabled and if auto-tweets of edits are disabled
-	if ( $editpage->mTitle->exists() &&
-		$wgTweetANewEditpage['Enable'] &&
-		!$wgTweetANewTweet['Edit']
-	) {
-		$attribs = [
-			'accesskey' => wfMessage( 'tweetanew-accesskey' )->text()
-		];
-		$options['title-message'] = 'tweetanew-edittooltip';
-		$options['label-message'] = 'tweetanew-editaction';
-		$options['id'] = 'wpTweetANewEdit';
-		$name = 'wpTweetANewEdit';
-	} elseif ( $wgTweetANewEditpage['Enable'] && !$wgTweetANewTweet['New'] ) {
-		# Check if article is new - if checkboxes are enabled and if auto-tweets of new articles are disabled
-		$attribs = [
-			'accesskey' => wfMessage( 'tweetanew-accesskey' )->text()
-		];
-
-		$options['title-message'] = 'tweetanew-newtooltip';
-		$options['label-message'] = 'tweetanew-newaction';
-		$options['id'] = 'wpTweetANew';
-		$name = 'wpTweetANew';
-	} else {
-		return true;
-	}
-
-	if ( $tabindex === null ) {
-		$checkboxes[$name] = $options;
-	} else {
-		$checkbox = Xml::check(
-			$name,
-			$options['default'],
-			$attribs + [ 'tabindex' => ++$tabindex ]
-		);
-		$attribs = [ 'for' => $options['id'] ];
-		$attribs['title'] = wfMessage( $options['title-message'] )->text();
-		$label = Xml::tags( 'label', $attribs, wfMessage( $options['label-message'] )->escaped() );
-		$checkboxes[ $options['legacy-name'] ] = $checkbox . '&#160;' . $label;
-	}
-	return true;
+	$wgHooks['EditPageGetCheckboxesDefinition'][] = 'TweetANew::TweetANewEditCheckBox';
 }
