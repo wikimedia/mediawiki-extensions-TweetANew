@@ -130,6 +130,7 @@ $wgTweetANewTweet = [
 	'Edit' => true,
 	'LessMinutesOld' => 5,
 	'SkipMinor' => true,
+	'SkipRedirect' => true,
 	'TwitterAsTitle' => false,
 	'UserGroup' => 'autoconfirmed',
 ];
@@ -197,7 +198,7 @@ $wgMessagesDirs['TweetANew'] = $dir . 'i18n';
 $wgExtensionCredits['other'][] = [
 	'path' => __FILE__,
 	'name' => 'TweetANew',
-	'version' => '1.2.11052020',
+	'version' => '1.2.12052020',
 	'author' => '[https://www.mediawiki.org/wiki/User:Varnent Gregory Varnum] and [https://github.com/mooeypoo Moriel Schottlender] after merging extensions by
 						[https://www.mediawiki.org/wiki/User:Joa_ds Joachim De Schrijver], Andrew Fitzgerald, Wendell Gaudencio, and Rohit Keshwani',
 	'descriptionmsg' => 'tweetanew-desc',

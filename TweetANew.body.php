@@ -265,7 +265,7 @@ class TweetANew {
 	public static function isTweetANewAllowed( $wikiPage, $user ) {
 		global $wgTweetANewTweet;
 		return (
-						!$wikiPage->isRedirect() &&
+						!( $wikiPage->isRedirect() && $wgTweetANewTweet['SkipRedirect'] ) &&
 						$user->isAllowed( $wgTweetANewTweet['UserGroup'] )
 					 );
 	}
