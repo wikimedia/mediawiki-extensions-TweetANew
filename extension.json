@@ -2,7 +2,11 @@
 	"name": "TweetANew",
 	"version": "1.2.12052020",
 	"author": [
-		"[https://www.mediawiki.org/wiki/User:Varnent Gregory Varnum], [https://github.com/mooeypoo Moriel Schottlender] after merging extensions by [https://www.mediawiki.org/wiki/User:Joa_ds Joachim De Schrijver], Andrew Fitzgerald, Wendell Gaudencio, and Rohit Keshwani"
+		"[https://www.mediawiki.org/wiki/User:Varnent Gregory Varnum]",
+		"[https://github.com/mooeypoo Moriel Schottlender] after merging extensions by [https://www.mediawiki.org/wiki/User:Joa_ds Joachim De Schrijver]",
+		"Andrew Fitzgerald",
+		"Wendell Gaudencio",
+		"Rohit Keshwani"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:TweetANew",
 	"descriptionmsg": "tweetanew-desc",
