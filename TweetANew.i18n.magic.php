@@ -2,8 +2,7 @@
 
 $magicWords = [];
 
-/** English
- */
+/** English (English) */
 $magicWords['en'] = [
    'tweetanew' => [ 0, 'tweetanew' ],
 ];

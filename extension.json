@@ -13,7 +13,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "other",
 	"ExtensionMessagesFiles": {
-		"TweetANewMagic": "TweetANew.i18n.php"
+		"TweetANewMagic": "TweetANew.i18n.magic.php"
 	},
 	"requires": {
 		"MediaWiki": ">= 1.29.0"
