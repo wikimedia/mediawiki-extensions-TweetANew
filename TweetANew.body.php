@@ -9,6 +9,20 @@
 class TweetANew {
 
 	/**
+	 * Register hooks depending on version
+	 */
+	public static function registerExtension() {
+		global $wgHooks;
+		if ( class_exists( MediaWiki\HookContainer\HookContainer::class ) ) {
+			// MW 1.35+
+			$wgHooks['PageSaveComplete'][] = 'TweetANew::TweetANewNewPageComplete';
+		} else {
+			$wgHooks['PageContentSaveComplete'][] = 'TweetANew::TweetANewNewPageContent';
+			$wgHooks['PageContentInsertComplete'][] = 'TweetANew::TweetANewEditMade';
+		}
+	}
+
+	/**
 	 * Respond to the parser hook call to invoke the 'tweetanew' magic word
 	 * @param Parser $parser
 	 */
@@ -30,11 +44,26 @@ class TweetANew {
 	}
 
 	/**
+	 * PageSaveComplete hook
+	 *
+	 * @param WikiPage $wikiPage
+	 * @param User $user
+	 * @param string $summary
+	 * @param int $flags
+	 * @param MediaWiki\Revision\RevisionRecord $revisionRecord
+	 * @param MediaWiki\Storage\EditResult $editResult
+	 */
+	public static function TweetANewNewPageComplete( $wikiPage, $user, $summary, $flags, $revisionRecord, $editResult ) {
+		self::TweetANewNewPageContent( $wikiPage, $user, null, $summary );
+		self::TweetANewEditMade( $wikiPage, $user, null, $summary, (int)$revisionRecord->isMinor() );
+	}
+
+	/**
 	 * Function for tweeting new wiki pages
 	 *
 	 * @param WikiPage $wikiPage
 	 * @param User $user
-	 * @param Content $content
+	 * @param Content|null $content
 	 * @param string $summary
 	 *
 	 * @return bool
@@ -117,7 +146,7 @@ class TweetANew {
 	 *
 	 * @param WikiPage $wikiPage
 	 * @param User $user
-	 * @param Content $content
+	 * @param Content|null $content
 	 * @param string $summary
 	 * @param bool $isMinor
 	 *

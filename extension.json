@@ -29,9 +29,8 @@
 		"tmhUtilities": "lib/tmhUtilities.php",
 		"GoogleURL": "lib/GoogleURL.php"
 	},
+	"callback": "TweetANew::registerExtension",
 	"Hooks": {
-		"PageContentInsertComplete": "TweetANew::TweetANewNewPageContent",
-		"PageContentSaveComplete": "TweetANew::TweetANewEditMade",
 		"EditPageGetCheckboxesDefinition": "TweetANew::TweetANewEditCheckBox",
 		"ParserFirstCallInit": "TweetANew::onParserFirstCallInit"
 	},
