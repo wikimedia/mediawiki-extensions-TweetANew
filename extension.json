@@ -90,17 +90,17 @@
 		},
 		"TweetANewBlacklist": {
 			"value": {
-				"value":""
+				"value": ""
 			}
 		},
 		"TweetANewBlocklist": {
 			"value": {
-				"value":""
+				"value": ""
 			}
 		},
 		"TweetANewCatBlocklist": {
 			"value": {
-				"value":""
+				"value": ""
 			}
 		}
 	},
