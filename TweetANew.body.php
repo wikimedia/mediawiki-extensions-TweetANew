@@ -5,7 +5,9 @@
  * @addtogroup Extensions
  * @license GPL
  */
-// TweetANew
+
+use MediaWiki\MediaWikiServices;
+
 class TweetANew {
 
 	/**
@@ -74,7 +76,8 @@ class TweetANew {
 		# Check if $wgTweetANewTweet['New'] is enabled or the Tweet checkbox was selected on the edit page
 		if ( $wgRequest->getCheck( 'wpTweetANew' ) || $wgTweetANewTweet['New'] ) {
 			# Check if page is in content namespace or if the Tweet checkbox was selected on the edit page
-			if ( !MWNamespace::isContent( $wikiPage->getTitle()->getNamespace() )
+			$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
+			if ( !$namespaceInfo->isContent( $wikiPage->getTitle()->getNamespace() )
 				&& !$wgRequest->getCheck( 'wpTweetANew' )
 				|| !self::isTweetANewAllowed( $wikiPage, $user )
 			) {
@@ -163,10 +166,11 @@ class TweetANew {
 
 		# Check if $wgTweetANewTweet['Edit'] is enabled or the Tweet checkbox was selected on the edit page
 		if ( $wgRequest->getCheck( 'wpTweetANewEdit' ) || $wgTweetANewTweet['Edit'] ) {
+			$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
 			# Unless the tweet checkbox is selected, only proceeds if page is outside content namespace
 			#   and if a minor edit, checks $wgTweetANewTweet['SkipMinor']
 			# Also prevents new articles from processing as TweetANewNewArticle function is used instead
-			if ( ( !MWNamespace::isContent( $wikiPage->getTitle()->getNamespace() )
+			if ( ( !$namespaceInfo->isContent( $wikiPage->getTitle()->getNamespace() )
 					|| ( $isMinor !== 0 && $wgTweetANewTweet['SkipMinor'] )
 					&& !$wgRequest->getCheck( 'wpTweetANewEdit' ) )
 				|| $wikiPage->getTitle()->estimateRevisionCount() == 1
