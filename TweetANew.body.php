@@ -403,7 +403,7 @@ class TweetANew {
 	 * @return bool
 	 */
 	public static function TweetANewEditCheckBox( $editpage, &$checkboxes, &$tabindex = null ) {
-		global $wgTweetANewEditpage, $wgTweetANewTweet, $wgUser;
+		global $wgTweetANewEditpage, $wgTweetANewTweet;
 
 		$options = [
 			'label-message' => null,
@@ -413,10 +413,10 @@ class TweetANew {
 			'legacy-name' => 'twitter',
 		];
 		# Check if article is new, if checkboxes are enabled, if user has permission, and if auto-tweets of edits are disabled
-		if ( $editpage->mTitle->exists() &&
+		if ( $editpage->getTitle()->exists() &&
 			$wgTweetANewEditpage['Enable'] &&
 			!$wgTweetANewTweet['Edit'] &&
-			$wgUser->isAllowed( $wgTweetANewTweet['UserGroup'] )
+			$editpage->getUser()->isAllowed( $wgTweetANewTweet['UserGroup'] )
 		) {
 			$attribs = [
 				'accesskey' => wfMessage( 'tweetanew-accesskey' )->text()
