@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fulup"
+			"Fulup",
+			"Huñvreüs"
 		]
 	},
-	"tweetanew-desc": "Twitañ pa vez krouet ur bajenn pe pa vez degaset kemmoù enni. Diouzh ar mod m'emañ kefluniet ar penndibaboù er wiki klok e vo adalek ar bajenn skridaozañ pe ent emgefre.",
+	"tweetanew-desc": "Twitañ pa vez krouet pe kemmet ur bajenn",
 	"tweetanew-newaction": "Twitañ a-zivout ar bajenn nevez-mañ.",
 	"tweetanew-newtooltip": "Kas titouroù war twitter a-zivout ar bajenn nevez-mañ.",
 	"tweetanew-editaction": "Twitañ a-zivout ar c'hemm-mañ",
