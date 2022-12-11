@@ -321,7 +321,7 @@ class TweetANew {
 				. "&apiKey=" . $wgTweetANewBitly['API'] . "&format=txt";
 
 			# Get the url from bitly
-			$response = Http::get( $shortened );
+			$response = MediaWikiServices::getInstance()->getHttpRequestFactory()->get( $shortened );
 		} elseif ( $wgTweetANewGoogl['Enable'] ) {
 			# Check setting to enable/disable use of goo.gl
 			# Setup goo.gl
