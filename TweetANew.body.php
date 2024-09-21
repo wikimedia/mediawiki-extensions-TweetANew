@@ -181,7 +181,7 @@ class TweetANew {
 
 			# Determine the time and date of last modification - exit if newer than $wgTweetANewTweet['LessMinutesOld']
 			# ToDo - there must be a cleaner way of doing this
-			$dbr = wfGetDB( DB_REPLICA );
+			$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 			$res = $dbr->select(
 				'revision',
 				[ 'rev_timestamp' ],
