@@ -14,6 +14,22 @@
 class tmhOAuth {
   const VERSION = 0.61;
 
+  var $params;
+  var $signing_params;
+  var $signing_key;
+  var $request_params;
+  var $auth_params;
+  var $headers;
+  var $auth_header;
+  var $response;
+  var $auto_fixed_time;
+  var $buffer;
+  var $config;
+  var $metrics;
+  var $method;
+  var $url;
+  var $base_string;
+
   /**
    * Creates a new tmhOAuth object
    *
