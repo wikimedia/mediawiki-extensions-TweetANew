@@ -170,9 +170,10 @@ class TweetANew {
 			# Unless the tweet checkbox is selected, only proceeds if page is outside content namespace
 			#   and if a minor edit, checks $wgTweetANewTweet['SkipMinor']
 			# Also prevents new articles from processing as TweetANewNewArticle function is used instead
-			if ( ( !$namespaceInfo->isContent( $wikiPage->getTitle()->getNamespace() )
+			if ( ( !$wgRequest->getCheck( 'wpTweetANewEdit' ) && (
+					!$namespaceInfo->isContent( $wikiPage->getTitle()->getNamespace() )
 					|| ( $isMinor !== 0 && $wgTweetANewTweet['SkipMinor'] )
-					&& !$wgRequest->getCheck( 'wpTweetANewEdit' ) )
+				) )
 				|| $wikiPage->getTitle()->estimateRevisionCount() == 1
 				|| !self::isTweetANewAllowed( $wikiPage, $user )
 			) {
