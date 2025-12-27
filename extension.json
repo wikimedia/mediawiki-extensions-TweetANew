@@ -16,7 +16,7 @@
 		"TweetANewMagic": "TweetANew.i18n.magic.php"
 	},
 	"requires": {
-		"MediaWiki": ">= 1.34.0"
+		"MediaWiki": ">= 1.40.0"
 	},
 	"MessagesDirs": {
 		"TweetANew": [
