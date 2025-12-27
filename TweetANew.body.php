@@ -6,6 +6,7 @@
  * @license GPL
  */
 
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 
 class TweetANew {
@@ -443,7 +444,7 @@ class TweetANew {
 		if ( $tabindex === null ) {
 			$checkboxes[$name] = $options;
 		} else {
-			$checkbox = Xml::check(
+			$checkbox = Html::check(
 				$name,
 				$options['default'],
 				$attribs + [ 'tabindex' => ++$tabindex ]
