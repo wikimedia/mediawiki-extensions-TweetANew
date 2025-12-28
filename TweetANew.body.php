@@ -451,7 +451,7 @@ class TweetANew {
 			);
 			$attribs = [ 'for' => $options['id'] ];
 			$attribs['title'] = wfMessage( $options['title-message'] )->text();
-			$label = Xml::tags( 'label', $attribs, wfMessage( $options['label-message'] )->escaped() );
+			$label = Html::rawElement( 'label', $attribs, wfMessage( $options['label-message'] )->escaped() );
 			$checkboxes[ $options['legacy-name'] ] = $checkbox . '&#160;' . $label;
 		}
 		return true;
